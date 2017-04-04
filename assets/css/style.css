@@ -1,0 +1,22 @@
+body {
+  background-color: gray;
+  margin-top: 0px;
+}
+
+.big-wraper {
+  margin: 0px;
+}
+
+.top-section {
+  background-color: maroon;
+  height: 100px;
+
+}
+
+.slider {
+  width: 740px ;
+  height : 275px;
+  margin-top: 10px;
+  margin-left: 20px;
+  background-color: purple;
+}
