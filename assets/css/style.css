@@ -1,6 +1,7 @@
 body {
-  background-color: gray;
+  background-color: white;
   margin-top: 0px;
+  overflow-x: hidden;
 }
 
 .big-wraper {
@@ -8,15 +9,81 @@ body {
 }
 
 .top-section {
-  background-color: maroon;
+  background-color: black;
   height: 100px;
 
 }
 
+.page-header {
+  margin-left: 390px;
+  margin-right: 450px;
+}
+
+nav {
+  border-color: inherit;
+}
+
+.navbar {
+  background-color: inherit;
+
+}
+
+.content {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .slider {
-  width: 740px ;
+  width: auto;
   height : 275px;
-  margin-top: 10px;
-  margin-left: 20px;
-  background-color: purple;
+  margin-top: 0px;
+  margin-left: 0px;
+
+  background-color: #aaafb7;
+  border-style: double;
+  border-color: gray;
+}
+
+.cat-title {
+  padding-top: 1px;
+  background-color: black;
+}
+
+.image-frame {
+
+}
+
+.index-items {
+  text-align: ;
+  background-color: white;
+}
+
+.index-item-box {
+  border-style: ridge;
+  border-color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.index-content-box {
+  padding-top: 1px;
+  margin: 1px 5px 1px 5px;
+  background-color: white;
+  text-align: center;
+}
+
+.index-cont {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.search {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.footer {
+  height: 100px;
+  background-color: black;
 }

@@ -5,6 +5,13 @@ module.exports = function(app, passport) {
         res.render('client/index.ejs'); // load the index.ejs file
     });
 
+    app.get('/vacant', function(req, res){
+      res.render('client/vacant.ejs');
+    })
+
+    app.get('/tobe', function(req, res){
+      res.render('client/vacant.ejs');
+    })
 
     // =====================================
     app.get('/profile', isLoggedIn, function(req, res) {

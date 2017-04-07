@@ -3,31 +3,8 @@
 <% include ../partial/head.ejs %>
 <body>
 <div class="container">
-  <% include ../partial/header.ejs %>
+  <% include ../partial/dash-header.ejs %>
 
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span>Admin Dashboard</h1>
-
-        <div class="row">
-
-     <!-- LOCAL INFORMATION -->
-     <div class="col-sm-6">
-         <div class="well">
-             <h3><span class="fa fa-user"></span> Local</h3>
-
-                 <p>
-                     <strong>id</strong>: <%= user._id %><br>
-                     <strong>email</strong>: <%= user.email %><br>
-                     <strong>password</strong>: <%= user.password %>
-                 </p>
-
-         </div>
-     </div>
-
- </div>
-
-
-    </div>
 
 </div>
 </body>
