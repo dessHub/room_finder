@@ -1,0 +1,535 @@
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	.centre {
+		width: 712px;
+		padding: 0px 28px 60px;
+	}
+.header{padding: 48px 28px 60px;}	
+.main_content{padding: 10px 34px 60px;}
+#selectnav1{display:none;}
+#nav{display:block;}	
+.header_area {height: 160px;}
+.navigation{width:712px;padding:10px 0px;}
+.logo {margin-top: 15px;}
+.menu_area {
+  margin-top: 0;
+}
+.home_content {
+  width: 522px;
+}
+.single_content {width: 105px;}
+.home_wide_add {width: 511px;}
+.single_blog_content {width: 142px;}
+.single_blog_content h2 {font-size: 11px;line-height: 17px;}
+.single_blog_content p {font-size: 8px;}
+.single_footer_top {padding: 0px;width: 170px;}
+.single_footer_top h2 {font-size: 18px;margin-bottom:5px;}
+.single_footer_top p {
+  font-size: 12px;
+  line-height: 17px;}
+.copyright {
+  width: 45%;
+  font-size: 15px;}
+  
+.footer_menu ul li a {
+  font-size: 13px;
+  padding: 5px;}
+  
+.main_content{margin-top:0px;}
+.single_page_title_info {
+  width: 80%;
+}
+
+/* blog page style */  
+.blog_home_content {
+  padding: 20px 10px;
+  width: 372px;
+}
+.single_android_news h1 {
+  font-size: 20px;
+  line-height: 24px;
+}
+.android_excerpt_content img {
+float: none;
+margin-right: 0;
+padding: 7px;
+width: 300px;
+margin: 8px auto;
+display: block;
+}
+
+/* blog single page style */
+
+.single_android_news h2 {
+  color: #999999;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 7px;
+}
+.inner-single-page-related-content{float: none;
+margin: 0 auto 7px;}
+  
+  
+}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	
+	.centre {
+		width: 252px;
+		padding: 0px 34px 60px;
+	}
+.header{padding: 20px 34px 60px;}
+#selectnav1{display:block;width:100%}
+#nav{display:none;}
+
+.navigation{width:252px;margin:0 auto;}
+.header_area {height: 200px;}
+
+.logo {
+  float: none !important;
+  width: 74%;
+  margin: 0 auto;}
+.logo h1 a {
+  font-size: 38px;
+}  
+.menu_area {
+  float: none !important;
+  margin: 0 auto;
+  width: 88%;
+}
+.search_site {
+margin: 0 auto;
+width: 63%;
+}
+.search_site form {
+  display: none;}
+.top_social {
+  float: right;
+  margin-left: 0;
+}
+.top_menu {
+  margin-top: 10px;
+  width: 100%;
+}
+.home_content {
+  width: 100%;
+  float: none !important;
+}
+ul.pgwSlider > li span, .pgwSlider > ul > li span {
+  font-size: 7px;
+  line-height: 10px;
+}
+
+.pgwSlider .ps-current span {
+  font-size: 10px;line-height:14px;
+}
+.main_content {
+  margin-top: 0px;
+}  
+.home_wide_add {
+  width: 95%;}
+.single_blog_content {
+margin-left: 3px;
+padding: 5px;
+width: 70px;}
+.single_blog_content_img img {
+  border: medium none;}  
+.single_blog_content h2 {
+font-size: 6px;
+line-height: 10px;}
+.single_blog_content p {
+font-size: 4px;
+}
+.home_content_sidebar {
+  float: none;
+  margin: 20px auto 0px;}  
+.footer_top_area {
+  margin-top:0px;}  
+.single_footer_top {
+  width: 100%;
+  margin: 0 auto 10px;
+  float: none;
+  text-align: center;}
+.footer_bottom_area {
+  margin: 0;
+}
+.copyright {float: none;
+font-size: 11px;
+padding: 2px;
+text-align: center;}  
+.footer_menu {
+  float: none;}
+  /* new added*/
+  
+.single_home_content_container > h2 {
+  font-size: 15px;}
+.single_home_content_container > h2 a {
+  font-size: 8px;
+}
+
+.single_content {
+  float: none;
+  margin: 0 auto 5px;}
+.single_blog_content_container {
+  margin-left: -3px;
+}
+.single_blog_content_container > h2 {
+  font-size: 17px;}
+.single_blog_content_container > h2 > a {
+  font-size: 10px;
+}
+.footer_menu ul li a {
+  padding: 2px 3px;
+  font-size: 6px;
+}
+.slider{margin-top:15px;}
+
+.single_content {
+float: none;
+margin: 0 0 10px 10px;
+text-align: inherit;
+width: 90.5%;
+min-height: 78px;
+max-height: 78px;
+}
+.single_content img {
+float: left;
+margin-right: 5px;
+margin-left: 5px;
+width:70px;
+margin-top: 8px;
+}
+.home_download {
+float: none;
+margin-left: 82px;
+text-align: center;
+width: 46%;
+}
+.rating {
+  margin: 0;
+}
+
+
+/* single page style */
+.single_page_title_info {
+  width: 70%;
+}
+.single_page_title h1 {
+  font-size: 10px;
+}
+.download_btn a {font-size: 10px;
+padding: 0 5px;}
+.report {
+  font-size: 5px;}
+.description {
+  float: none;
+  text-align: center;}
+.r-tabs-anchor{}
+.r-tabs-accordion-title {border: 1px solid #DDDDDD;
+border-radius: 5px;
+margin-bottom: 5px;
+padding: 5px;
+background: url(images/down_accordion.png) no-repeat left center #fff;padding-left:50px;}
+.r-tabs-accordion-title:active{background:#35A1FB}  
+.single_page_feature_img {
+  width: 60px;}
+.single_post_meta p, .single_post_meta a {
+  font-size: 5px;
+  line-height: 10px;}  
+.screenshot_title {
+  font-size: 18px;
+}
+
+
+/* blog page style */  
+.blog_home_content {
+  padding: 20px 10px;
+  width: 100%;
+}
+.single_android_news h1 {
+font-size: 15px;
+line-height: 20px;
+}
+.android_post_meta > p {font-size:7px;}
+.android_excerpt_content img {
+float: none;
+margin-right: 0;
+padding: 7px;
+width: 212px;
+margin: 8px auto;
+display: block;
+}
+.blog_home_content_sidebar {
+  float: none;
+  margin: 0 auto;}
+.blog_home_content_sidebar {
+  padding: 10px;
+  width: 252px;
+}
+.blog_home_content_sidebar .home_single_sidebar h2 {
+  width: 232px;
+}  
+
+/* blog single page style */
+
+.single_android_news h2 {
+  color: #999999;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 7px;
+}
+.inner-single-page-related-content {width: 70px !important;}  
+.inner-single-page-related-content h2{font-size: 6px !important;
+line-height: 2px !important;
+margin-top: 5px;}  
+.inner-single-page-related-content p {
+  font-size: 4px !important;
+}  
+  
+}
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	.centre {
+		width: 436px;
+		padding: 36px 22px 48px;
+	}
+.main_content{padding: 10px 34px 60px;}	
+#selectnav1{display:block;width:100%;}
+#nav{display:none;}
+
+.navigation{width:436px;margin:0 auto;}
+.header_area {height: 200px;}
+
+.logo {
+  float: none !important;
+  width: 45%;
+  margin: 0 auto;}
+.logo h1 a {
+  font-size: 40px;
+}  
+.menu_area {
+  float: none !important;
+  margin: 0 auto;
+  width: 50%;
+}
+.search_site {
+margin: 0 auto;
+width: 63%;
+}
+.search_site form {
+  display: none;}
+.top_social {
+  float: right;
+  margin-left: 0;
+}
+.top_menu {
+  margin-top: 10px;
+  width: 100%;
+}
+.home_content {
+  width: 100%;
+  float: none !important;
+}
+ul.pgwSlider > li span, .pgwSlider > ul > li span {
+  font-size: 7px;
+  line-height: 10px;
+}
+
+.pgwSlider .ps-current span {
+  font-size: 10px;line-height:14px;
+}
+.main_content {
+  margin-top: 0px;
+}  
+.home_wide_add {
+  width: 97%;}
+.single_blog_content {
+  margin-left:15px;
+  padding: 5px;
+  width: 123px;}
+.single_blog_content_img img {
+  border: medium none;}  
+.single_blog_content h2 {
+  font-size: 10px;
+  line-height: 16px;}
+.single_blog_content p {
+  font-size: 7px;
+}
+.home_content_sidebar {
+  float: none;
+  margin: 20px auto 0px;}  
+.footer_top_area {
+  margin-top:0px;}  
+.single_footer_top {
+  width: 100%;
+  margin: 0 auto 10px;
+  float: none;
+  text-align: center;}
+.footer_bottom_area {
+  margin: 0;
+}
+.copyright {float: none;font-size: 14px;padding: 2px;
+text-align: center;}  
+.footer_menu {
+  float: none;}
+  
+  
+.single_home_content_container > h2 {
+  font-size: 20px;}
+.single_home_content_container > h2 a {
+  font-size: 14px;
+}
+/*
+.single_content {
+  float: left;
+  margin:0px 0px 10px 10px;}
+  */
+.single_blog_content_container {
+  margin-left: -15px;
+}
+.single_blog_content_container > h2 {
+  font-size: 20px;}
+.single_blog_content_container > h2 > a {
+  font-size: 10px;
+}
+.footer_menu ul li a {
+  padding: 5px;
+  font-size: 13px;
+}
+
+
+/* single page style */
+.single_page_title_info {
+  width: 78%;
+}
+.single_page_title h1 {
+  font-size: 14px;
+}
+.download_btn a {padding: 2px 5px;}
+.report {
+  font-size: 14px;}
+.description {
+  float: none;
+  text-align: center;}
+.r-tabs-anchor{}
+.r-tabs-accordion-title {border: 1px solid #DDDDDD;
+border-radius: 5px;
+margin-bottom: 5px;
+padding: 5px;
+background: url(images/down_accordion.png) no-repeat left center #fff;padding-left:50px;}
+.r-tabs-accordion-title:active{background:#35A1FB}  
+.single_page_feature_img {
+  width: 80px;}
+.single_post_meta p, .single_post_meta a {
+  font-size: 10px;
+  line-height: 16px;}
+.screenshot_title {
+  font-size: 22px;
+}
+
+
+
+.single_content {
+float: none;
+margin: 0 0 10px 10px;
+text-align: inherit;
+width: 94%;
+min-height: 100px;
+max-height: 100px;
+}
+.single_content img {
+float: left;
+margin-right: 10px;
+margin-left: 5px;
+width:100px;
+margin-top: 0px;
+}
+.home_download {
+float: none;
+text-align: center;
+width: 38%;
+margin-left: 112px;
+}
+.rating {
+  margin: 0;
+}
+.single_content h2 {
+  font-size: 13px;
+}
+
+
+/* blog page style */  
+.blog_home_content {
+  padding: 20px 10px;
+  width: 100%;
+}
+.single_android_news h1 {
+  font-size: 20px;
+  line-height: 24px;
+}
+.android_excerpt_content img {
+float: none;
+margin-right: 0;
+padding: 7px;
+width: 300px;
+margin: 8px auto;
+display: block;
+}
+.blog_home_content_sidebar {
+  float: none;
+  margin: 0 auto;}	
+.android_post_meta > p {font-size:10px;}
+
+.blog_home_content_sidebar {
+  width: 300px;
+}
+.blog_home_content_sidebar .home_single_sidebar h2 {
+  width: 280px;
+}
+/* blog single page style */
+
+.single_android_news h2 {
+  color: #999999;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 7px;
+}
+.inner-single-page-related-content {width: 123px !important;}  
+.inner-single-page-related-content h2{font-size: 8px !important;
+line-height: 10px !important;
+margin-top: 5px;}  
+.inner-single-page-related-content p {
+  font-size: 6px !important;
+}
+  
+}
+
+

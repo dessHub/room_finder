@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html>
+<% include ../partial/admin-head.ejs %>
+<body>
+<div id="wrapper">
+  <% include ../partial/dash-header.ejs %>
+  <% include ../partial/side-bar.ejs %>
+
+  <div id="page-wrapper" >
+   <div id="page-inner">
+
+     <div class="content">
+      <div class="row ">
+
+        <div class="col-md-12 col-xs-12">
+          <div class="search">
+            <div class="row ">
+
+              <div class="col-md-12 col-xs-12">
+
+              </div>
+            </div>
+
+            <!-- /contact info -->
+
+                    <form id="contact-form" method="POST" action="/add" >
+                      <div class="row">
+                    <div class="col-md-offset-2 col-md-3 col-sm-12 col-xs-12">
+                      <div class="">
+                       <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
+                         <option  value="">Select Category</option>
+                         <option  value="All">All</option>
+                         <option  value="single">Single</option>
+                         <option  value="bedsitter">Bed Sitter</option>
+                         <option  value="one">One Bedroom</option>
+                         <option  value="two">Two BedRooms</option>
+                         <option  value="three">Three BedRooms</option>
+                       </select>
+                     </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                      <div class="">
+                       <select class="form-control" id="location" required="true" name="location" style="background-color : inherit">
+                         <option value="">Select Location</option>
+                         <option  value="All">All</option>
+                         <option value="Tudor">Tudor</option>
+                         <option value="Kaachonjo">Kaa Chonjo</option>
+                         <option value="Makupa">Makupa</option>
+                         <option value="Sabasaba">Saba saba</option>
+
+
+                       </select>
+                     </div>
+                    </div>
+
+                   </div><br>
+                     <div class="row">
+                   <div class="col-md-offset-2 col-md-3 col-sm-12 col-xs-12">
+                     <div class="form-group">
+                         <label>Room No:</label>
+                          <input class="form-control" type="text" name="room_no" />
+                       </div>
+                      <div class="form-group">
+                       <label>Plot No:</label>
+                          <input class="form-control" type="text" name="plot_no" />
+                      </div>
+
+                     </div>
+                     <div class="col-md-3 col-sm-12 col-xs-12">
+                       <div class="form-group">
+                           <label>More Information:</label>
+                            <textarea class="form-control" rows="2" name="info" ></textarea>
+                         </div>
+                        <div class="form-group">
+                            <label>Room Image:</label>
+                             <input type="file" name="image" />
+                        </div>
+
+
+                       </div>
+                   </div>
+                   <div class="row">
+                     <div class="col-md-offset-4 col-md-3 col-sm-12 col-xs-12">
+                       <button type="submit" class="btn btn-style blue">Create</button>
+                       <button type="cancel" class="btn btn-style blue">Cancel</button>
+                     </div>
+                   </div>
+
+                     </form>
+                   <br><br>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<% include ../partial/dash-scripts %>
+</body>
+</html>

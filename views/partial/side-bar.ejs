@@ -1,56 +1,69 @@
-<div class="nav-side-menu">
-    <div class="brand">Brand Logo</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-    <div class="menu-list">
-        <ul id="menu-content" class="menu-content collapse out">
-            <li>
-                <a href="#">
-                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                </a>
-            </li>
-            <li data-toggle="collapse" data-target="#products" class="collapsed active">
-                <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="products">
-                <li class="active"><a href="#">CSS3 Animation</a></li>
-                <li><a href="#">General</a></li>
-                <li><a href="#">Buttons</a></li>
-                <li><a href="#">Tabs &amp; Accordions</a></li>
-                <li><a href="#">Typography</a></li>
-                <li><a href="#">FontAwesome</a></li>
-                <li><a href="#">Slider</a></li>
-                <li><a href="#">Panels</a></li>
-                <li><a href="#">Widgets</a></li>
-                <li><a href="#">Bootstrap Model</a></li>
-            </ul>
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="service">
-                <li>New Service 1</li>
-                <li>New Service 2</li>
-                <li>New Service 3</li>
-            </ul>
+<nav class="navbar-default navbar-side" role="navigation">
+<div class="sidebar-collapse">
+<ul class="nav" id="main-menu">
+<li class="text-center">
+    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+</li>
 
 
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="new">
-                <li>New New 1</li>
-                <li>New New 2</li>
-                <li>New New 3</li>
-            </ul>
+    <li>
+        <a class="active-menu"  href="/profile"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+    </li>
+     <li>
+        <a  href="ui.html"><i class="fa fa-home fa-3x"></i> Rooms<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
             <li>
-                <a href="#">
-                    <i class="fa fa-user fa-lg"></i> Profile
-                </a>
+                <a href="/admin-all">All</a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fa fa-users fa-lg"></i> Users
-                </a>
+                <a href="/admin-vacant">Vacant</a>
+            </li>
+            <li>
+                <a href="/admin-tobe">To Be Vacant</a>
+            </li>
+            <li>
+                <a href="/admin-occupied">Occupied</a>
+            </li>
+            <li>
+                <a href="/admin-add">Add</a>
             </li>
         </ul>
-    </div>
+    </li>
+    <li>
+        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="#">Second Level Link</a>
+            </li>
+            <li>
+                <a href="#">Second Level Link</a>
+            </li>
+            <li>
+                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                <ul class="nav nav-third-level">
+                    <li>
+                        <a href="#">Third Level Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Third Level Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Third Level Link</a>
+                    </li>
+
+                </ul>
+
+            </li>
+        </ul>
+      </li>
+  <li  >
+        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+    </li>
+</ul>
+
 </div>
+
+</nav>

@@ -1,108 +1,115 @@
 
 <!doctype html>
 <html>
-<% include ../partial/head.ejs %>
+<% include ../partial/admin-head.ejs %>
 <body>
-<div class="container-fluid">
+<div id="wrapper">
+  <% include ../partial/dash-header.ejs %>
   <% include ../partial/side-bar.ejs %>
-<div class="dash-body">
-<% include ../partial/dash-header.ejs %>
 
-<div class="row stats">
-<div class="col-md-4 col-xs-12">
-  <div class="stat-elements">
-    <div class="row " style="background-color:#f48942; margin-right:0px; margin-left:0px; margin-top:0px;padding-top:10px;padding-bottom:10px;">
-      <div class="col-md-6">
-  <a >
-      <i class="glyphicon glyphicon-user" ></i>
-  </a>
-  </div>
-  <div class="col-md-6">
-  <h4>12 Agents</h4>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+  <div id="page-wrapper" >
+   <div id="page-inner">
 
-    </div>
-    </div>
-</div>
-</div>
-<div class="col-md-4 col-xs-12">
-  <div class="container-fluid stat-elements">
-    <div class="row " style="background-color:brown; margin-right:0px; margin-left:0px; margin-top:0px;padding-top:10px;padding-bottom:10px;">
-      <div class="col-md-6">
-  <a >
-      <i class="glyphicon glyphicon-home" ></i>
-  </a>
-  </div>
-  <div class="col-md-6">
-  <h4>400 Vacant Rooms</h4>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+     <div class="row stats">
+     <div class="col-md-4 col-xs-12">
+       <div class="stat-elements">
+         <div class="row " style="background-color:#f48942; margin-right:0px; margin-left:0px; margin-top:0px;padding-top:10px;padding-bottom:10px;">
+           <div class="col-md-6">
+       <a >
+           <i class="glyphicon glyphicon-user" ></i>
+       </a>
+       </div>
+       <div class="col-md-6">
+       <h4>12 Agents</h4>
+       </div>
+       </div>
+       <div class="row">
+         <div class="col-md-12">
 
-    </div>
-    </div>
+         </div>
+         </div>
+     </div>
+     </div>
+     <div class="col-md-4 col-xs-12">
+       <div class="stat-elements">
+         <div class="row " style="background-color:brown; margin-right:0px; margin-left:0px; margin-top:0px;padding-top:10px;padding-bottom:10px;">
+           <div class="col-md-6">
+       <a >
+           <i class="glyphicon glyphicon-home" ></i>
+       </a>
+       </div>
+       <div class="col-md-6">
+       <h4>400 Vacant Rooms</h4>
+       </div>
+       </div>
+       <div class="row">
+         <div class="col-md-12">
+
+         </div>
+         </div>
+     </div>
+
+     </div>
+     <div class="col-md-4 col-xs-12">
+       <div class="stat-elements">
+         <div class="row " style="background-color:#578e41; margin-right:0px; margin-left:0px; margin-top:0px;padding-top:10px;padding-bottom:10px;">
+           <div class="col-md-6">
+       <a >
+           <i class="glyphicon glyphicon-ok-sign" ></i>
+       </a>
+       </div>
+       <div class="col-md-6">
+       <h4>32 Booked Rooms</h4>
+       </div>
+       </div>
+       <div class="row">
+         <div class="col-md-12">
+
+         </div>
+         </div>
+       </div>
+     </div>
+     </div>
+
+     <div class="row ">
+     <div class="col-md-12 col-xs-12">
+       <div class="panel panel-default agents-table">
+         <div class="panel-body">Agents</div>
+         <div class="panel-footer">
+           <div class="table-responsive">
+        <table class="table">
+          <thead>
+           <th>First Name</th>
+           <th>Last Name</th>
+           <th>Location</th>
+           <th>Mobile No</th>
+          </thead>
+          <tbody>
+           <tr>
+            <td>Mark</td>
+            <td>Novic</td>
+            <td>Tudor West</td>
+            <td>+254786756432</td>
+           </tr>
+           <tr>
+            <td>Daville</td>
+            <td>Karis</td>
+            <td>Kaa Chonjo</td>
+            <td>+254703456543</td>
+           </tr>
+          </tbody>
+        </table>
+      </div>
+         </div>
+       </div>
+     </div></div>
+
+
+</div>
 </div>
 
 </div>
-<div class="col-md-4 col-xs-12">
-  <div class="stat-elements">
-    <div class="row " style="background-color:#578e41; margin-right:0px; margin-left:0px; margin-top:0px;padding-top:10px;padding-bottom:10px;">
-      <div class="col-md-6">
-  <a >
-      <i class="glyphicon glyphicon-ok-sign" ></i>
-  </a>
-  </div>
-  <div class="col-md-6">
-  <h4>32 Booked Rooms</h4>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
 
-    </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="row ">
-<div class="col-md-12 col-xs-12">
-  <div class="panel panel-default agents-table">
-    <div class="panel-body">Agents</div>
-    <div class="panel-footer">
-      <div class="table-responsive">
-   <table class="table">
-     <thead>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Location</th>
-      <th>Mobile No</th>
-     </thead>
-     <tbody>
-      <tr>
-       <td>Mark</td>
-       <td>Novic</td>
-       <td>Tudor West</td>
-       <td>+254786756432</td>
-      </tr>
-      <tr>
-       <td>Daville</td>
-       <td>Karis</td>
-       <td>Kaa Chonjo</td>
-       <td>+254703456543</td>
-      </tr>
-     </tbody>
-   </table>
- </div>
-    </div>
-  </div>
-</div></div>
-</div>
-
-</div>
+<% include ../partial/dash-scripts %>
 </body>
 </html>
