@@ -1,3 +1,20 @@
-module.exports = {
-  'url' : 'mongodb://localhost/room-finder'
-}
+
+module.exports=[
+	{
+    'environment': 'development',
+    'url'       : 'mongodb://localhost/kejahunt',
+    'secret'    : 'nosecrets'
+  },
+
+  {
+    'environment': 'production',
+    'url'       : process.env.MONGOLAB_URI,
+    'secret'    : 'nosecrets'
+  },
+
+  {
+    'environment': 'test',
+    'url'       : 'mongodb://localhost/room-finder',
+    'secret'    : 'nosecrets'
+  }
+]

@@ -1,3 +1,5 @@
+var User = require('../models/user');
+
 module.exports = function(app, passport) {
   // =====================================
   // LOGIN ===============================
@@ -10,11 +12,24 @@ module.exports = function(app, passport) {
   });
 
   // process the login form
-  app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
+  app.post('/login', function(req,res){
+    passport.authenticate('local', function(err,user){
+           if(err) return err;
+           var message = {"msg":"Wrong Username or Password"};
+           if(!user){
+
+             res.render('pages/login.ejs' , {message:message})
+           }
+           req.login(user, function(err){
+             if(err) return err;
+             res.redirect(req.session.returnTo || '/use')
+             delete req.session.returnTo;
+
+
+           });
+
+      })(req,res,next);
+    });
 
   // =====================================
   // SIGNUP ==============================
@@ -27,11 +42,83 @@ module.exports = function(app, passport) {
   });
 
   // process the signup form
-  app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
+  app.post('/signup', function(req, res){
+      var firstname=req.body.firstname;
+      var lastname=req.body.lastname;
+      var username=req.body.username;
+      var phoneno=req.body.phoneno;
+      var location=req.body.location;
+      var password=req.body.password;
+      var password2=req.body.password2;
+      var role = "normal"
+
+      //validation
+      req.checkBody('password', 'Password should be 8 to 20 characters').len(8, 20);
+      req.checkBody('password2','Passwords do not match').equals(req.body.password);
+
+      var errors = req.validationErrors();
+      console.log(errors)
+      if (errors){
+        var err = errors.msg;
+        var utaken = errors;
+
+          res.render('pages/signup.ejs', {error : null,messages: utaken});
+
+      }else {
+
+        User.getUserByUsername(username, function(err, user){
+      if(err) throw err;
+      if(user){
+          var errors = "";
+          var msg = "";
+          var utaken = "Mobile No exists in our system."
+
+            res.render('pages/signup.ejs', {error : null,messages: utaken});
+          }else{
+
+              console.log('You have no register errors');
+              var newUser=new User({
+                firstname: firstname,
+                lastname: lastname,
+                username: username,
+                phoneno: phoneno,
+                location : location,
+                password: password,
+                role: role
+
+          });
+          User.createUser(newUser,function(err, user){
+              if (err) throw err;
+
+              req.login(user, function(err){
+                    if(err) return err;
+                    console.log('check user');
+                    console.log(user.phoneno);
+                    res.redirect(req.session.returnTo || '/use')
+                    delete req.session.returnTo;
+
+                });
+            });
+
+          console.log(newUser)
+        }
+      });
+      }
+    });
+
+    app.get('/use', function(req,res){
+        var user = req.user;
+        var role = user.role;
+        console.log(role)
+        if(role =="admin"){
+         res.redirect('/admin');
+        }
+        else if(role == "normal"){
+
+           res.redirect('/profile');
+
+        }
+      });
 
 
   // =====================================
