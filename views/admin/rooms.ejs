@@ -75,8 +75,11 @@
      <div class="row">
        <% for(i=0; i<rooms.length; i++) { %>
      <div class="col-md-offset-1 col-md-3 col-xs-6">
-       <div class=" index-item-box container-fluid">
 
+       <div class=" index-item-box">
+         <div class="admin-cat-title">
+           <a ><h5><strong><%= rooms[i].category %> </strong>   < / > <%= rooms[i].status %></h></a>
+         </div>
      <div class="index-content-box">
        <a href="" class=""><img src="/<%= rooms[i].image %>" alt="" class="" height='100px' width='100px' ></a>
        <div class="index-cont">

@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
     // =====================================
     app.get('/admin-vacant', isLoggedIn, function(req, res) {
 
-      Room.find({}, function(err, rooms){
+      Room.find({"status":"Vacant"}, function(err, rooms){
         if(err) return err;
 
         res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
@@ -34,17 +34,29 @@ module.exports = function(app, passport) {
 
     // =====================================
     app.get('/admin-tobe', isLoggedIn, function(req, res) {
-        res.render('admin/rooms.ejs'); // load the index.ejs file
+      Room.find({"status":"To Be Vacant"}, function(err, rooms){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+      })
     });
 
     // =====================================
     app.get('/admin-occupied', isLoggedIn, function(req, res) {
-        res.render('admin/rooms.ejs'); // load the index.ejs file
+      Room.find({"status":"Occupied"}, function(err, rooms){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+      })
     });
 
     // =====================================
     app.get('/admin-all', isLoggedIn, function(req, res) {
-        res.render('admin/rooms.ejs'); // load the index.ejs file
+      Room.find({}, function(err, rooms){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+      })
     });
 
     // =====================================
@@ -60,7 +72,7 @@ module.exports = function(app, passport) {
       var info = req.body.info;
       var price = req.body.price;
       var user = req.user;
-      var status = "vacant";
+      var status = "Vacant";
       var image = req.image;
       var tmp_path = req.file.path;
 
@@ -146,6 +158,7 @@ module.exports = function(app, passport) {
       var category = req.body.category;
       var info = req.body.info;
       var price = req.body.price;
+      var status = req.body.status;
 
       var id = req.params.id;
       var lin = "room" + id ;
@@ -158,6 +171,7 @@ module.exports = function(app, passport) {
         plot_no:plot_no,
         category:category,
         info:info,
+        status:status,
         price:price},function(err, room){
         if(err) return err;
 

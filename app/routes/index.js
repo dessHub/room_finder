@@ -1,3 +1,6 @@
+var Room = require('../models/rooms');
+var Album = require('../models/album');
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -6,13 +9,34 @@ module.exports = function(app, passport) {
     });
 
     app.get('/vacant', function(req, res){
-      res.render('client/vacant.ejs');
+      Room.find({"status":"Vacant"}, function(err, rooms){
+        if(err) throw err;
+
+        res.render('client/vacant.ejs', {rooms:rooms});
+      })
+
     })
 
     app.get('/tobe', function(req, res){
-      res.render('client/vacant.ejs');
+      Room.find({"status":"To Be Vacant"}, function(err, rooms){
+        if(err) throw err;
+
+        res.render('client/vacant.ejs', {rooms:rooms});
+      })
     })
 
+    app.get('/clroom:id', function(req, res){
+      Room.find({"_id":req.params.id}, function(err, room){
+        if(err) return err;
+
+        Album.find({"room":req.params.id}, function(err, album){
+          if(err) return err;
+
+          res.render("client/room.ejs", {room:room, album:album});
+        })
+
+      })
+    });
     // =====================================
     app.get('/profile', isLoggedIn, function(req, res) {
 

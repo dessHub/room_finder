@@ -87,9 +87,9 @@ app.use(function(req, res, next){
 });
 
 //routes middleware
-require('./app/routes/index.js')(app);
-require('./app/routes/auth.js')(app);
-require('./app/routes/admin.js')(app);
+require('./app/routes/index.js')(app, passport);
+require('./app/routes/auth.js')(app, passport);
+require('./app/routes/admin.js')(app, passport);
 
 
 app.set('port',(process.env.PORT || 8080));

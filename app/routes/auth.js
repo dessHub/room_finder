@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var passport = require('passport');
 
 module.exports = function(app, passport) {
   // =====================================
@@ -12,7 +13,7 @@ module.exports = function(app, passport) {
   });
 
   // process the login form
-  app.post('/login', function(req,res){
+  app.post('/login', function(req,res, next){
     passport.authenticate('local', function(err,user){
            if(err) return err;
            var message = {"msg":"Wrong Username or Password"};

@@ -56,7 +56,7 @@
                        <option value="Kisii">Kisii</option>
                        <option value="Kisumu">Kisumu</option>
                        <option value="Kitui">Kitui</option>
-                  
+
                      </select>
                    </div>
                   </div>
@@ -72,94 +72,40 @@
     </div>
 
 
-    <div id="single" class="index-items">
+    <div id="single" class="index-items container-fluid">
 
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10 col-xs-12">
    <div class="row">
-   <div class="col-md-offset-1 col-md-3 col-xs-6">
-     <div class=" index-item-box container-fluid">
+     <% for(i=0; i<rooms.length; i++) { %>
+   <div class="col-md-4 col-xs-6 ">
+<div class="">
 
-   <div class="index-content-box">
-     <a href="" class=""><img src="/assets/images/linuz_user2.png" alt="" class="" height='100px' width='100px' ></a>
-     <div class="index-cont">
-      <h4><strong>Location:</strong>Tudor </h4>
-      <h4><strong>Price:</strong> Ksh. 6500 </h4>
-      <a href="" class="btn btn-success" style="margin-bottom:5px">View</a>
-     </div>
-   </div>
- </div>
-   </div>
-   <div class="col-md-3 col-xs-6">
-     <div class=" index-item-box container-fluid">
-
-   <div class="index-content-box">
-     <a href="" class=""><img src="/assets/images/linuz_user2.png" alt="" class="" height='100px' width='100px' ></a>
-     <div class="index-cont">
-      <h4><strong>Location:</strong>Tudor </h4>
-      <h4><strong>Price:</strong> Ksh. 6500 </h4>
-      <a href="" class="btn btn-success" style="margin-bottom:5px">View</a>
-     </div>
-   </div>
- </div>
-   </div>
-   <div class="col-md-3 col-xs-6">
-     <div class=" index-item-box container-fluid">
-
-   <div class="index-content-box">
-     <a href="" class=""><img src="/assets/images/linuz_user2.png" alt="" class="" height='100px' width='100px' ></a>
-     <div class="index-cont">
-      <h4><strong>Location:</strong>Tudor </h4>
-      <h4><strong>Price:</strong> Ksh. 6500 </h4>
-      <a href="" class="btn btn-success" style="margin-bottom:5px">View</a>
-     </div>
-   </div>
- </div>
-   </div>
-
- </div>
-
-
-    <div class="row">
-    <div class="col-md-offset-1 col-md-3 col-xs-6">
-      <div class=" index-item-box container-fluid">
-
-    <div class="index-content-box">
-      <a href="" class=""><img src="/assets/images/linuz_user2.png" alt="" class="" height='100px' width='100px' ></a>
-      <div class="index-cont">
-       <h4><strong>Location:</strong>Tudor </h4>
-       <h4><strong>Price:</strong> Ksh. 6500 </h4>
-       <a href="" class="btn btn-success" style="margin-bottom:5px">View</a>
+     <div class="row " >
+       <div class="col-md-6 col-xs-12" >
+     <a href="" class=""><img src="/<%= rooms[i].image %>" alt="" class="" height='130px' width='150px' ></a>
       </div>
-    </div>
-  </div>
-    </div>
-    <div class="col-md-3 col-xs-6">
-      <div class=" index-item-box container-fluid">
+     <div class="col-md-6 col-xs-12">
+     <div class="index-cont">
+      <h4><strong><%= rooms[i].category %></strong> </h4>
+      <h4><strong>Status:</strong> <%= rooms[i].status %> </h4>
+      <h4><strong>Location:</strong><%= rooms[i].location %> </h4>
+      <h4><strong>Price:</strong> Ksh. <%= rooms[i].price %> </h4>
+      <a href="/clroom<%= rooms[i].id %>" class="btn btn-success" style="margin-bottom:5px">View</a>
+     </div>
 
-    <div class="index-content-box">
-      <a href="" class=""><img src="/assets/images/linuz_user2.png" alt="" class="" height='100px' width='100px' ></a>
-      <div class="index-cont">
-       <h4><strong>Location:</strong>Tudor </h4>
-       <h4><strong>Price:</strong> Ksh. 6500 </h4>
-       <a href="" class="btn btn-success" style="margin-bottom:5px">View</a>
-      </div>
-    </div>
-  </div>
-    </div>
-    <div class="col-md-3 col-xs-6">
-      <div class=" index-item-box container-fluid">
+   </div>
+</div>
+ </div>
+   </div><br>
+<% } %>
 
-    <div class="index-content-box">
-      <a href="" class=""><img src="/assets/images/linuz_user2.png" alt="" class="" height='100px' width='100px' ></a>
-      <div class="index-cont">
-       <h4><strong>Location:</strong>Tudor </h4>
-       <h4><strong>Price:</strong> Ksh. 6500 </h4>
-       <a href="" class="btn btn-success" style="margin-bottom:5px">View</a>
-      </div>
-    </div>
+ </div>
+</div>
   </div>
-    </div>
 
-  </div>
+
+
     </div>
 
 

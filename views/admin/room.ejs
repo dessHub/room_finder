@@ -53,16 +53,22 @@
      </div>
      <div class="col-md-6 col-xs-6">
        <div class=" index-item-box container-fluid">
+         <div class="text-center" ><h3><strong><%= room[i].category %> </strong>  <%= room[i].status %></h3></div>
+     <div class="row">
 
-     <div class="index-content-box">
+       <div class="col-md-6 col-xs-12">
 
-       <div class="index-cont">
-         <h3><strong><%= room[i].category %> </strong> </h3>
         <h4><strong>Location:</strong><%= room[i].location %> </h4>
+        <h4><strong>Plot No:</strong> Ksh. <%= room[i].plot_no %> </h4>
+       </div>
+       <div class="col-md-6 col-xs-12">
+
+        <h4><strong>Room No:</strong><%= room[i].room_no %> </h4>
         <h4><strong>Price:</strong> Ksh. <%= room[i].price %> </h4>
-        <p><strong></strong> <%= room[i].info %> </p>
+
        </div>
      </div>
+     <div class="text-center" ><p><strong></strong> <%= room[i].info %> </p></div>
    </div>
      </div>
      <div class="col-md-3 col-xs-12">
@@ -162,13 +168,24 @@
            <label>Plot No:</label>
               <input class="form-control" type="text" name="plot_no" value="<%= room[i].plot_no %>"required="true"/>
           </div>
+          <div class="form-group">
+           <label>Price:</label>
+              <input class="form-control" type="text" name="price" value="<%= room[i].price %>"required="true"/>
+          </div>
 
          </div>
          <div class="col-md-6 col-sm-12 col-xs-12">
-           <div class="form-group">
-            <label>Price:</label>
-               <input class="form-control" type="text" name="price" value="<%= room[i].price %>"required="true"/>
-           </div>
+
+           <div class="">
+            <select class="form-control" id="status" required="true" name="status" style="background-color : inherit">
+              <option value="<%= room[i].status %>"><%= room[i].status %></option>
+              <option value="Vacant">Vacant</option>
+              <option value="To Be Vacant">To Be Vacant</option>
+              <option value="Occupied">Occupied</option>
+
+
+            </select>
+          </div>
            <div class="form-group">
                <label>More Information:</label>
                 <textarea class="form-control" rows="3" name="info" required="true"><%= room[i].info %></textarea>

@@ -49,6 +49,14 @@ nav {
   background-color: black;
 }
 
+.admin-cat-title {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-left: 0px;
+  background-color: black;
+
+}
+
 .image-frame {
 
 }
@@ -72,8 +80,12 @@ nav {
   text-align: center;
 }
 
+.rooms-frame {
+  border-style: ridge;
+  border-color: black;
+}
+
 .index-cont {
-  text-align: center;
   margin-bottom: 10px;
 }
 
