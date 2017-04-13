@@ -40,12 +40,14 @@
 
 
     <div id="single" class="index-items container-fluid">
+      <div class="row">
+      <div class="col-md-9 col-xs-12">
 
       <% for(i=0; i<room.length; i++) { %>
       <div class="row">
 
       <div class="col-md-3 col-xs-6">
-        <div class=" index-item-box container-fluid">
+        <div class="  container-fluid">
 
       <div class="index-content-box">
         <a href="" class=""><img src="/<%= room[i].image %>" alt="" class="" height='170px' width='140px' ></a>
@@ -55,55 +57,72 @@
     </div>
       </div>
       <div class="col-md-6 col-xs-6">
-        <div class=" index-item-box container-fluid">
-          <div class="text-center" ><h3><strong><%= room[i].category %> </strong>  <%= room[i].status %></h3></div>
+        <div class=" container-fluid">
+
       <div class="row">
 
         <div class="col-md-6 col-xs-12">
-
-         <h4><strong>Location:</strong><%= room[i].location %> </h4>
-         <h4><strong>Plot No:</strong> Ksh. <%= room[i].plot_no %> </h4>
+         <h4 class="subtitle"><strong><%= room[i].category %> </strong>  </h4>
+         <h5><strong>Location:</strong><%= room[i].location %> </h5>
+         <h5><strong>Plot No:</strong> Ksh. <%= room[i].plot_no %> </h5>
+         <h5><strong>Room No:</strong><%= room[i].room_no %> </h5>
+         <h5><strong>Price:</strong> Ksh. <%= room[i].price %> </h5>
+         <h5><strong>Availability:</strong> <%= room[i].status %> </h5>
+         <div class="text-center" style="background-color :silver;" ><p><strong></strong> <%= room[i].info %> </p></div>
         </div>
         <div class="col-md-6 col-xs-12">
+          <h4><strong>Agent </strong>  </h4>
+          <h5><strong>First Name:</strong>Mark </h5>
+          <h5><strong>Last Name:</strong> Stevo </h5>
+          <h5><strong>Email:</strong>stevo23@gmail.com </h5>
+          <h5><strong>Mobile No:</strong> 0792876777 </h5>
 
-         <h4><strong>Room No:</strong><%= room[i].room_no %> </h4>
-         <h4><strong>Price:</strong> Ksh. <%= room[i].price %> </h4>
 
         </div>
       </div>
-      <div class="text-center" ><p><strong></strong> <%= room[i].info %> </p></div>
-    </div>
-      </div>
-      <div class="col-md-3 col-xs-12">
-        <div class=" index-item-box container-fluid">
 
-      <div class="index-content-box">
-
-        <div class="index-cont" style="padding-top:40px">
-
-      </div>
     </div>
       </div>
 
-    </div>
   </div>
  <% } %>
 
- <hr><br>
+ <br>
+ <div class="">
+   <h3 class="subtitle">Gallery</h3>
      <div class="row">
        <% for(i=0; i<album.length; i++) { %>
      <div class="col-md-offset-1 col-md-3 col-xs-6">
-       <div class=" index-item-box container-fluid">
+       <div class=" ">
 
      <div class="index-content-box">
        <a href="" class=""><img src="/<%= album[i].image %>" alt="" class="" height='100px' width='100px' ></a>
-      
+
      </div>
      </div>
      </div>
      <% } %>
      </div>
-
+     </div>
+</div>
+  <div class="col-md-3 col-xs-12 aside">
+    <h3 class="subtitle">Related Category</h3>
+    <% for(i=0; i<cat.length; i++) { %>
+    <div class="row">
+    <div class="col-md-3 col-xs-3">
+     <a href="/clroom<%= cat[i].id %>" class=""><img src="/<%= cat[i].image %>" alt="" class="" height='90px' width='60px' ></a>
+    </div>
+    <div class="col-md-9 col-xs-9">
+      <h5><strong>Location:</strong><%= cat[i].location %> </h5>
+      <h5><strong>Price:</strong> Ksh. <%= cat[i].price %> </h5>
+      <h5><strong>Availability:</strong> <%= cat[i].status %> </h5>
+      <a href="/clroom<%= cat[i].id %>" class="" ><h5 style="padding-left : 30px;">View</h5></a>
+    </div>
+  </div><hr>
+<% } %>
+  </div>
+  </div>
+</div>
 
 
     </div>

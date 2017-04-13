@@ -89,6 +89,24 @@ nav {
   margin-bottom: 10px;
 }
 
+.ind {
+  height: 180px;
+}
+
+
+.subtitle {
+    position: relative;
+    line-height: normal;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    padding: 0px 0px 3px;
+    margin: 0px 0px 20px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(221, 221, 221);
+}
+
 .search {
   margin-top: 5px;
   margin-bottom: 5px;

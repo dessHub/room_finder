@@ -5,7 +5,11 @@ module.exports = function(app, passport) {
 
     // =====================================
     app.get('/', function(req, res) {
-        res.render('client/index.ejs'); // load the index.ejs file
+      Room.find({}, function(err, rooms){
+        if(err) throw err;
+
+        res.render('client/index.ejs', {rooms:rooms});
+      })
     });
 
     app.get('/vacant', function(req, res){
@@ -29,10 +33,21 @@ module.exports = function(app, passport) {
       Room.find({"_id":req.params.id}, function(err, room){
         if(err) return err;
 
+         var cat = "";
+         for(i=0; i<room.length; i++){
+           cat = room[i].category;
+         }
+
         Album.find({"room":req.params.id}, function(err, album){
           if(err) return err;
 
-          res.render("client/room.ejs", {room:room, album:album});
+           Room.find({"category":cat}, function(err, cat){
+             if(err) return err;
+
+             console.log(cat);
+             res.render("client/room.ejs", {room:room, album:album, cat:cat});
+           })
+
         })
 
       })
