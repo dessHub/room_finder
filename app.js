@@ -28,6 +28,8 @@ mongoose.connect(configDB.getDB(env));
 //set static folder.
 app.use('/assets', express.static('assets'));
 app.use('/uploads', express.static('uploads'));
+app.use(express.static(__dirname + '/assets'));
+app.use('/room/', express.static(__dirname + '/assets/'));
 
 
 //use ejs-localsfor ejs template
