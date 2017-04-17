@@ -19,7 +19,7 @@ var engine = require('ejs-locals');
 var dotenv           =  require('dotenv');
 var env              =  process.env.NODE_ENV || 'production';
 
-dotenv.load();
+//dotenv.load();
 
 var configDB = require('./config/settings');
 mongoose.Promise = global.Promise;
@@ -45,7 +45,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 //express session
-console.log(env); 
+console.log(env);
 app.use(session({
   saveUninitialized: false,
   resave: false,
