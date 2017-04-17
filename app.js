@@ -17,7 +17,7 @@ var multer = require('multer');
 var fs = require('fs');
 var engine = require('ejs-locals');
 var dotenv           =  require('dotenv');
-var env              =  process.env.NODE_ENV || 'development';
+var env              =  process.env.NODE_ENV || 'production';
 
 dotenv.load();
 
@@ -45,6 +45,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 
 //express session
+console.log(env); 
 app.use(session({
   saveUninitialized: false,
   resave: false,
