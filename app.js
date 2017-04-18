@@ -17,14 +17,14 @@ var multer = require('multer');
 var fs = require('fs');
 var engine = require('ejs-locals');
 var dotenv           =  require('dotenv');
-var env              =  process.env.NODE_ENV || 'development';
+var env              =  process.env.NODE_ENV || 'production';
 
 dotenv.load();
 
 var configDB = require('./config/settings');
 mongoose.Promise = global.Promise;
 mongoose.connect(configDB.getDB(env));
- 
+
 //set static folder.
 app.use('/assets', express.static('assets'));
 app.use('/uploads', express.static('uploads'));
