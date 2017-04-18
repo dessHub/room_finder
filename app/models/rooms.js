@@ -7,10 +7,7 @@ var roomSchema = mongoose.Schema({
         category    :{
           type : String
         } ,
-        room_no     : {
-          type : String
-        },
-        plot_no    : {
+        title     : {
           type : String
         },
         location     : {
@@ -22,18 +19,21 @@ var roomSchema = mongoose.Schema({
         price     : {
           type : String
         },
-        phoneno    : {
-          type : String
-        },
         image : {
           type : String
         },
         status : {
           type : String
         },
-        user     : {
-          type : Schema.Types.ObjectId, ref: "User"
-        }
+        name     : {
+          type : String
+        },
+        phoneno    : {
+          type : String
+        },
+        email    : {
+          type : String
+        },
 
 });
 

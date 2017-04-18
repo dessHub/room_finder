@@ -66,12 +66,13 @@ module.exports = function(app, passport) {
 
     app.post('/add', upload.single('image'), function(req, res){
       var location = req.body.location;
-      var room_no = req.body.room_no;
-      var plot_no = req.body.plot_no;
+      var title = req.body.title;
       var category = req.body.category;
       var info = req.body.info;
       var price = req.body.price;
-      var user = req.user;
+      var name = req.user.name;
+      var email = req.user.email;
+      var phoneno = req.user.phoneno;
       var status = "Vacant";
       var image = req.image;
       var tmp_path = req.file.path;
@@ -84,35 +85,29 @@ module.exports = function(app, passport) {
        var dest = fs.createWriteStream(target_path);
        src.pipe(dest);
        fs.unlink(tmp_path); //deleting the tmp_path
-       console.log("its getting here")
-       console.log(user);
-       Room.find({"plot_no" : plot_no, "room_no" :room_no}, function(err, room){
-         if(err) return err;
 
-         if(room.length >0){
-           req.flash("error_msg","Room no already exist in the system");
-           res.redirect('/admin-add');
-         }else{
            var room = new Room();
-             room.room_no = room_no;
+             room.email = email;
              room.category = category;
-             room.plot_no = plot_no;
+             room.title = title;
+             room.phoneno = phoneno;
              room.location = location;
              room.image = target_path;
              room.status = status;
              room.price = price;
              room.info = info;
-             room.user = user;
+             room.name = name;
              console.log(room.location);
            room.save(function(err, room){
              if(err) return err;
 
+             var id = room.id;
+             console.log(id);
+             var lin = "room" + id ;
              console.log("saved")
              req.flash("success_msg", "Room successfully created")
-             res.redirect('/admin-add');
+             res.redirect(lin);
            });
-         }
-       })
 
     });
 
@@ -153,9 +148,8 @@ module.exports = function(app, passport) {
 
     app.post('/update:id', function(req,res){
       var location = req.body.location;
-      var room_no = req.body.room_no;
-      var plot_no = req.body.plot_no;
       var category = req.body.category;
+      var title = req.body.title;
       var info = req.body.info;
       var price = req.body.price;
       var status = req.body.status;
@@ -167,9 +161,8 @@ module.exports = function(app, passport) {
       room._id = id;
 
       room.update({location:location,
-        room_no:room_no,
-        plot_no:plot_no,
         category:category,
+        title : title,
         info:info,
         status:status,
         price:price},function(err, room){

@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/vacant', function(req, res){
-      Room.find({"status":"Vacant"}, function(err, rooms){
+      Room.find({}, function(err, rooms){
         if(err) throw err;
 
         res.render('client/vacant.ejs', {rooms:rooms});

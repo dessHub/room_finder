@@ -62,20 +62,18 @@
       <div class="row">
 
         <div class="col-md-6 col-xs-12">
-         <h4 class="subtitle"><strong><%= room[i].category %> </strong>  </h4>
+         <h4 class="subtitle"><strong><%= room[i].title %> </strong>  </h4>
          <h5><strong>Location:</strong><%= room[i].location %> </h5>
-         <h5><strong>Plot No:</strong> Ksh. <%= room[i].plot_no %> </h5>
-         <h5><strong>Room No:</strong><%= room[i].room_no %> </h5>
+         <h5><strong>Category:</strong> <%= room[i].category %> </h5>
          <h5><strong>Price:</strong> Ksh. <%= room[i].price %> </h5>
          <h5><strong>Availability:</strong> <%= room[i].status %> </h5>
          <div class="text-center" style="background-color :silver;" ><p><strong></strong> <%= room[i].info %> </p></div>
         </div>
         <div class="col-md-6 col-xs-12">
           <h4><strong>Agent </strong>  </h4>
-          <h5><strong>First Name:</strong>Mark </h5>
-          <h5><strong>Last Name:</strong> Stevo </h5>
-          <h5><strong>Email:</strong>stevo23@gmail.com </h5>
-          <h5><strong>Mobile No:</strong> 0792876777 </h5>
+          <h5><strong>Name:</strong><%= room[i].name %> </h5>
+          <h5><strong>Email:</strong><%= room[i].email %></h5>
+          <h5><strong>Mobile No:</strong> <%= room[i].phoneno %> </h5>
 
 
         </div>

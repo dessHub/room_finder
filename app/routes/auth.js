@@ -44,8 +44,8 @@ module.exports = function(app, passport) {
 
   // process the signup form
   app.post('/signup', function(req, res){
-      var firstname=req.body.firstname;
-      var lastname=req.body.lastname;
+      var name=req.body.name;
+      var email=req.body.email;
       var username=req.body.username;
       var phoneno=req.body.phoneno;
       var location=req.body.location;
@@ -79,8 +79,8 @@ module.exports = function(app, passport) {
 
               console.log('You have no register errors');
               var newUser=new User({
-                firstname: firstname,
-                lastname: lastname,
+                name: name,
+                email: email,
                 username: username,
                 phoneno: phoneno,
                 location : location,
