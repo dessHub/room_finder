@@ -24,7 +24,7 @@ dotenv.load();
 var configDB = require('./config/settings');
 mongoose.Promise = global.Promise;
 mongoose.connect(configDB.getDB(env));
-
+ 
 //set static folder.
 app.use('/assets', express.static('assets'));
 app.use('/uploads', express.static('uploads'));
