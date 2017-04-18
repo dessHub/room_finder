@@ -19,7 +19,7 @@ var engine = require('ejs-locals');
 var dotenv           =  require('dotenv');
 var env              =  process.env.NODE_ENV || 'production';
 
-//dotenv.load();
+dotenv.load();
 
 var configDB = require('./config/settings');
 mongoose.Promise = global.Promise;
