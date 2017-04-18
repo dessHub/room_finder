@@ -17,7 +17,7 @@ var multer = require('multer');
 var fs = require('fs');
 var engine = require('ejs-locals');
 var dotenv           =  require('dotenv');
-var env              =  process.env.NODE_ENV || 'production';
+var env              =  process.env.NODE_ENV || 'development';
 
 dotenv.load();
 
