@@ -12,11 +12,20 @@ module.exports = function(app, passport) {
       })
     });
 
-    app.get('/vacant', function(req, res){
+    app.get('/ads', function(req, res){
       Room.find({}, function(err, rooms){
         if(err) throw err;
 
         res.render('client/vacant.ejs', {rooms:rooms});
+      })
+
+    });
+
+    app.get('/list', function(req, res){
+      Room.find({}, function(err, rooms){
+        if(err) throw err;
+
+        res.render('client/listings.ejs', {rooms:rooms});
       })
 
     })

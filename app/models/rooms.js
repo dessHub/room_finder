@@ -34,6 +34,9 @@ var roomSchema = mongoose.Schema({
         email    : {
           type : String
         },
+        date    : {
+          type : Date
+        }
 
 });
 

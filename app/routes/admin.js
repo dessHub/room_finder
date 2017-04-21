@@ -73,7 +73,7 @@ module.exports = function(app, passport) {
       var name = req.user.name;
       var email = req.user.email;
       var phoneno = req.user.phoneno;
-      var status = "Vacant";
+      var status = "Pending";
       var image = req.image;
       var tmp_path = req.file.path;
 
@@ -97,6 +97,7 @@ module.exports = function(app, passport) {
              room.price = price;
              room.info = info;
              room.name = name;
+             room.date = Date();
              console.log(room.location);
            room.save(function(err, room){
              if(err) return err;

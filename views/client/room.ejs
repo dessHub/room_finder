@@ -5,45 +5,33 @@
 
 <div class="container-fluid big-wraper">
 
-    <div class="row top-section">
-        <div class="col-md-12 col-xs-12">
-          <% include ../partial/header.ejs %>
-
-        </div>
-    </div>
+  <div class="row top-section">
+    <% include ../partial/top-section.ejs %>
+  </div>
 
    <div class="content">
     <div class="row ">
 
       <div class="col-md-offset-1 col-md-10 col-xs-12">
-        <div class="row ">
-
-          <div class="col-md-12 col-xs-12">
-        <div class="search">
-          <!-- /contact info -->
-          <div style="margin-bottom :20px; margin-top :20px;">
-                  <div class="col-md-offset-2 col-md-3 col-sm-12 col-xs-12">
-
-                  </div>
-                  <div class="col-md-3 col-sm-12 col-xs-12">
-
-                  </div>
-                   <div class="col-md-3 col-sm-12 col-xs-12">
-                     <button type="submit" class="btn btn-style blue">Search</button>
-                   </div>
-                 </div><br><br>
-        </div>
-
-      </div>
-
-    </div>
 
 
     <div id="single" class="index-items container-fluid">
-      <div class="row">
+      <!-- Search section -->
+
+      <!-- End of search section -->
+      <div class="row" style="margin-top : 30px;">
       <div class="col-md-9 col-xs-12">
 
       <% for(i=0; i<room.length; i++) { %>
+        <div class="row ">
+
+        <div class="col-md-7 col-xs-7">
+          <h4 class="" style="color : blue"><strong><%= room[i].title %> </strong>  </h4>
+        </div>
+        <div class="col-md-5 col-xs-5">
+          <h4 class="" style="color : green">Price  <strong><%= room[i].price %> </strong>  </h4>
+        </div>
+      </div>
       <div class="row">
 
       <div class="col-md-3 col-xs-6">
@@ -61,15 +49,13 @@
 
       <div class="row">
 
-        <div class="col-md-6 col-xs-12">
-         <h4 class="subtitle"><strong><%= room[i].title %> </strong>  </h4>
+        <div class="col-md-10 col-xs-12">
+
          <h5><strong>Location:</strong><%= room[i].location %> </h5>
          <h5><strong>Category:</strong> <%= room[i].category %> </h5>
-         <h5><strong>Price:</strong> Ksh. <%= room[i].price %> </h5>
-         <h5><strong>Availability:</strong> <%= room[i].status %> </h5>
-         <div class="text-center" style="background-color :silver;" ><p><strong></strong> <%= room[i].info %> </p></div>
+         <div class="text-center" style="background-color :#f5f5ef; padding-top:12px" ><p><strong></strong> <%= room[i].info %> </p></div>
         </div>
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-2 col-xs-12">
           <h4><strong>Agent </strong>  </h4>
           <h5><strong>Name:</strong><%= room[i].name %> </h5>
           <h5><strong>Email:</strong><%= room[i].email %></h5>
@@ -86,7 +72,7 @@
  <% } %>
 
  <br>
- <div class="">
+ <div class="" style="margin-bottom : 50px;">
    <h3 class="subtitle">Gallery</h3>
      <div class="row">
        <% for(i=0; i<album.length; i++) { %>
@@ -106,15 +92,19 @@
   <div class="col-md-3 col-xs-12 aside">
     <h3 class="subtitle">Related Category</h3>
     <% for(i=0; i<cat.length; i++) { %>
+      <div class="row ">
+
+      <div class="col-md-12 col-xs-12">
+        <h5 class="" style="color : blue"><strong><%= cat[i].title %> </strong>  </h5>
+      </div>
+    </div>
     <div class="row">
     <div class="col-md-3 col-xs-3">
      <a href="/clroom<%= cat[i].id %>" class=""><img src="/<%= cat[i].image %>" alt="" class="" height='90px' width='60px' ></a>
     </div>
     <div class="col-md-9 col-xs-9">
       <h5><strong>Location:</strong><%= cat[i].location %> </h5>
-      <h5><strong>Price:</strong> Ksh. <%= cat[i].price %> </h5>
-      <h5><strong>Availability:</strong> <%= cat[i].status %> </h5>
-      <a href="/clroom<%= cat[i].id %>" class="" ><h5 style="padding-left : 30px;">View</h5></a>
+      <h4 style="margin-top : 30px; color:green"><strong</strong> Ksh. <%= cat[i].price %> </h4>
     </div>
   </div><hr>
 <% } %>

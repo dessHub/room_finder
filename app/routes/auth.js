@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
            var message = {"msg":"Wrong Username or Password"};
            if(!user){
 
-             res.render('pages/login.ejs' , {message:message})
+             res.render('admin/login.ejs' , {message:message})
            }
            req.login(user, function(err){
              if(err) return err;
