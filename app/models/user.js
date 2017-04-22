@@ -1,9 +1,10 @@
+type : String
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 var UserSchema = mongoose.Schema({
 
-  username :{
+  phoneno :{
     type : String,
     index : true
   },
@@ -12,12 +13,6 @@ var UserSchema = mongoose.Schema({
   },
   email : {
     type :  String
-  },
-  phoneno  : {
-    type : String
-  },
-  location : {
-    type : String
   },
   role :{
     type :  String
@@ -37,8 +32,8 @@ module.exports.createUser = function(newUser, callback){
     });
   });
 }
-module.exports.getUserByUsername = function(username, callback){
-  var query = {username: username};
+module.exports.getUserByUsername= function(username, callback){
+  var query = {phoneno: username};
   User.findOne(query, callback);
 }
 module.exports.getUserById = function(id, callback){

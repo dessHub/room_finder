@@ -9,17 +9,18 @@ module.exports = function(app, passport) {
   app.get('/login', function(req, res) {
 
       // render the page and pass in any flash data if it exists
-      res.render('admin/login.ejs', { message: req.flash('loginMessage') });
+      res.render('admin/login.ejs');
   });
 
   // process the login form
   app.post('/login', function(req,res, next){
     passport.authenticate('local', function(err,user){
            if(err) return err;
-           var message = {"msg":"Wrong Username or Password"};
+           var message = {};
            if(!user){
-
-             res.render('admin/login.ejs' , {message:message})
+             req.flash("error_msg","Wrong Mobile No or Password");
+             console.log("Wrong Mobile No or Password")
+             res.redirect('/login');
            }
            req.login(user, function(err){
              if(err) return err;
@@ -46,9 +47,7 @@ module.exports = function(app, passport) {
   app.post('/signup', function(req, res){
       var name=req.body.name;
       var email=req.body.email;
-      var username=req.body.username;
       var phoneno=req.body.phoneno;
-      var location=req.body.location;
       var password=req.body.password;
       var password2=req.body.password2;
       var role = "normal"
@@ -62,28 +61,26 @@ module.exports = function(app, passport) {
       if (errors){
         var err = errors.msg;
         var utaken = errors;
-
-          res.render('pages/signup.ejs', {error : null,messages: utaken});
+          req.flash("error_msg",utaken);
+          res.redirect('/signup');
 
       }else {
 
-        User.getUserByUsername(username, function(err, user){
+        User.getUserByUsername(phoneno, function(err, user){
       if(err) throw err;
       if(user){
           var errors = "";
           var msg = "";
           var utaken = "Mobile No exists in our system."
-
-            res.render('pages/signup.ejs', {error : null,messages: utaken});
+            req.flash("error_msg",utaken);
+            res.redirect('/signup');
           }else{
 
               console.log('You have no register errors');
               var newUser=new User({
                 name: name,
                 email: email,
-                username: username,
                 phoneno: phoneno,
-                location : location,
                 password: password,
                 role: role
 
@@ -112,11 +109,11 @@ module.exports = function(app, passport) {
         var role = user.role;
         console.log(role)
         if(role =="admin"){
-         res.redirect('/admin');
+         res.redirect('/profile');
         }
         else if(role == "normal"){
 
-           res.redirect('/profile');
+           res.redirect('/');
 
         }
       });

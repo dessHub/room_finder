@@ -25,17 +25,12 @@ var roomSchema = mongoose.Schema({
         status : {
           type : String
         },
-        name     : {
-          type : String
-        },
-        phoneno    : {
-          type : String
-        },
-        email    : {
-          type : String
-        },
         date    : {
           type : Date
+        },
+        user :{
+            type : Schema.Types.ObjectId, ref: "User",
+            unique: "true"
         }
 
 });

@@ -5,11 +5,13 @@ module.exports = function(app, passport) {
 
     // =====================================
     app.get('/', function(req, res) {
+
       Room.find({}, function(err, rooms){
         if(err) throw err;
 
-        res.render('client/index.ejs', {rooms:rooms});
+        res.render('client/home.ejs', {rooms:rooms});
       })
+
     });
 
     app.get('/ads', function(req, res){
@@ -18,6 +20,14 @@ module.exports = function(app, passport) {
 
         res.render('client/vacant.ejs', {rooms:rooms});
       })
+
+    });
+
+    app.get('/add-ads', isLoggedIn,function(req, res){
+
+
+        res.render('client/add-ads.ejs');
+
 
     });
 

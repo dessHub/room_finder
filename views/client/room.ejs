@@ -3,22 +3,13 @@
 <% include ../partial/head.ejs %>
 <body>
 
-<div class="container-fluid big-wraper">
+  <% include ../partial/heady.ejs %>
 
-  <div class="row top-section">
-    <% include ../partial/top-section.ejs %>
-  </div>
-
-   <div class="content">
-    <div class="row ">
-
-      <div class="col-md-offset-1 col-md-10 col-xs-12">
-
-
-    <div id="single" class="index-items container-fluid">
-      <!-- Search section -->
-
-      <!-- End of search section -->
+  <div class="line">
+     <div class="box">
+        <div class="margin2x">
+           <!-- CONTENT -->
+           <section class="s-12 m-8 l-9 center">
       <div class="row" style="margin-top : 30px;">
       <div class="col-md-9 col-xs-12">
 
@@ -72,24 +63,20 @@
  <% } %>
 
  <br>
- <div class="" style="margin-bottom : 50px;">
+ <div class="container-fluid" style="margin-bottom : 50px;">
    <h3 class="subtitle">Gallery</h3>
-     <div class="row">
-       <% for(i=0; i<album.length; i++) { %>
-     <div class="col-md-offset-1 col-md-3 col-xs-6">
-       <div class=" ">
+   <div class="margin">
+     <% for(i=0; i<album.length; i++) { %>
+      <div class="s-12 m-6 l-4" style="">
 
-     <div class="index-content-box">
-       <a href="" class=""><img src="/<%= album[i].image %>" alt="" class="" height='100px' width='100px' ></a>
+         <img src="/<%= album[i].image %>" class="img-thumbnail img-responsive" style="height:200px; width:100%;" >
 
-     </div>
-     </div>
-     </div>
-     <% } %>
-     </div>
+      </div>
+       <% } %>
+   </div>
      </div>
 </div>
-  <div class="col-md-3 col-xs-12 aside">
+  <div class="l-3 m-3 s-12 aside">
     <h3 class="subtitle">Related Category</h3>
     <% for(i=0; i<cat.length; i++) { %>
       <div class="row ">
@@ -100,7 +87,7 @@
     </div>
     <div class="row">
     <div class="col-md-3 col-xs-3">
-     <a href="/clroom<%= cat[i].id %>" class=""><img src="/<%= cat[i].image %>" alt="" class="" height='90px' width='60px' ></a>
+     <a href="/clroom<%= cat[i].id %>" class=""><img src="/<%= cat[i].image %>" alt="" class="" height='120px' width='60px' ></a>
     </div>
     <div class="col-md-9 col-xs-9">
       <h5><strong>Location:</strong><%= cat[i].location %> </h5>
@@ -110,6 +97,7 @@
 <% } %>
   </div>
   </div>
+
 </div>
 
 
@@ -117,11 +105,6 @@
   </div>
 </div>
 
-  </div>
-
-  <% include ../partial/footer.ejs %>
-
-</div>
-
+<% include ../partial/footer-script.ejs %>
 </body>
 </html>

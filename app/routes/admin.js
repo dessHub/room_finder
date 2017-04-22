@@ -70,9 +70,7 @@ module.exports = function(app, passport) {
       var category = req.body.category;
       var info = req.body.info;
       var price = req.body.price;
-      var name = req.user.name;
-      var email = req.user.email;
-      var phoneno = req.user.phoneno;
+      var user = req.user;
       var status = "Pending";
       var image = req.image;
       var tmp_path = req.file.path;
@@ -87,16 +85,14 @@ module.exports = function(app, passport) {
        fs.unlink(tmp_path); //deleting the tmp_path
 
            var room = new Room();
-             room.email = email;
              room.category = category;
              room.title = title;
-             room.phoneno = phoneno;
              room.location = location;
              room.image = target_path;
              room.status = status;
              room.price = price;
              room.info = info;
-             room.name = name;
+             room.user = user;
              room.date = Date();
              console.log(room.location);
            room.save(function(err, room){
@@ -106,7 +102,7 @@ module.exports = function(app, passport) {
              console.log(id);
              var lin = "room" + id ;
              console.log("saved")
-             req.flash("success_msg", "Room successfully created")
+             req.flash("success_msg", "Your Ad successfully created")
              res.redirect(lin);
            });
 
@@ -119,7 +115,7 @@ module.exports = function(app, passport) {
         Album.find({"room":req.params.id}, function(err, album){
           if(err) return err;
 
-          res.render("admin/room.ejs", {room:room, album:album});
+          res.render("client/ad.ejs", {room:room, album:album});
         })
 
       })

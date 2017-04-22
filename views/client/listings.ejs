@@ -3,62 +3,79 @@
 <% include ../partial/head.ejs %>
 <body>
 
-<div class="container-fluid big-wraper">
+  <% include ../partial/heady.ejs %>
 
-  <div class="row top-section">
-    <% include ../partial/top-section.ejs %>
-  </div>
+  <!-- ASIDE NAV AND CONTENT -->
+  <div class="line">
+     <div class="box">
+        <div class="margin2x">
+           <!-- CONTENT -->
+           <section class="s-12 m-8 l-9 right">
+              <h1>Top Ads</h1>
+              <div class="margin">
+                <% for(i=0; i<rooms.length; i++) { %>
+                 <div class="s-12 m-6 l-6">
+                   <a href="/clroom<%= rooms[i].id %>"><h3 class="" style="color : blue"><%= rooms[i].title %></h3></a>
+                   <div class="s-12 m-4 l-4">
 
-   <div class="content">
-
-
-    <div id="single" class="index-items ">
-
-      <!-- Search section -->
-      <div class="search">
-        <% include ../partial/search-list.ejs %>
+                    <a href="/clroom<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>"></a>
+                    </div>
+                    <div class="s-12 m-8 l-8" style="padding-left : 4px;">
+                    <h4 class="margin-bottom"><strong>Location</strong> | <%= rooms[i].location %></h4>
+                    <h4 class="margin-bottom" style=" color : #4d4d00;"><strong> <%= rooms[i].info %></strong></h4>
+                    <div class="customform s-12 margin-bottom2x center">
+                       <h2 style="text-align : center; color : blue;"><strong>Ksh.</strong> | <%= rooms[i].price %></h2>
+                    </div>
+                 </div>
+                 </div>
+                  <% } %>
+              </div>
+           </section>
+           <!-- ASIDE NAV -->
+               <aside class="s-12 m-4 l-3">
+                  <div class="aside-nav minimize-on-small">
+                     <p class="aside-nav-text">Sidebar navigation</p>
+                     <ul>
+                        <li><a>Home</a></li>
+                        <li>
+                           <a>Product</a>
+                           <ul>
+                              <li><a>Product 1</a></li>
+                              <li><a>Product 2</a></li>
+                              <li>
+                                 <a>Product 3</a>
+                                 <ul>
+                                    <li><a>Product 3-1</a></li>
+                                    <li><a>Product 3-2</a></li>
+                                    <li><a>Product 3-3</a></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <a>Company</a>
+                           <ul>
+                              <li><a>About</a></li>
+                              <li><a>Location</a></li>
+                           </ul>
+                        </li>
+                        <li><a>Contact</a></li>
+                     </ul>
+                  </div>
+               </aside>
+            </div>
+         </div>
       </div>
-      <!-- End of search section -->
 
-
-  <div class="row">
-    <div class="col-md-offset-1 col-md-10 col-xs-12">
-   <div class="row">
-     <% for(i=0; i<rooms.length; i++) { %>
-   <div class="col-md-4 col-xs-6 " style="margin-bottom : 20px;">
-     <div class=" ">
-      <a href="/clroom<%= rooms[i].id %>"><h4 class=""><strong><%= rooms[i].title %> </strong>  </h4></a>
-      </div>
-     <div class="row " >
-       <div class="col-md-6 col-xs-12" >
-     <a href="/clroom<%= rooms[i].id %>" class=""><img src="/<%= rooms[i].image %>" alt="" class="" height='130px' width='150px' ></a>
-      </div>
-     <div class="col-md-6 col-xs-12">
-     <div class="index-cont">
-      <h5><strong>Location:</strong><%= rooms[i].location %> </h5>
-      <h5><strong>Posted On:</strong> <%= rooms[i].date %> </h5>
-      <h3 style="margin-bottom : 5px; color : blue" > Ksh. <%= rooms[i].price %> </h3>
+        </div>
      </div>
-
-   </div>
-</div>
-   </div>
-<% } %>
-
- </div>
-</div>
   </div>
+  <!-- FOOTER -->
 
-
-
-    </div>
-
-
-  </div>
 
   <% include ../partial/footer.ejs %>
 
-</div>
 
+<% include ../partial/footer-script.ejs %>
 </body>
 </html>

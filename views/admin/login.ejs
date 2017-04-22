@@ -2,38 +2,69 @@
 <html>
 <% include ../partial/head.ejs %>
 <body>
-<div class="container">
 
-<div class="col-sm-6 col-sm-offset-3">
+  <% include ../partial/heady.ejs %>
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
+  <!-- ASIDE NAV AND CONTENT -->
+  <div class="line">
+     <div class="box">
+        <div class="margin2x">
+           <!-- CONTENT -->
+           <section class="s-12 m-8 l-9 center">
+             <div class="">
 
-    <!-- show any messages that come back with authentication -->
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
+             <div class="col-sm-6 col-sm-offset-3">
 
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control" name="username">
+                 <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+                 <!-- show any messages that come back with authentication -->
+                 <% if (success_msg){ %>
+                     <div data-alert class="alert-box alert success radius" style="color : green">
+                   <%= success_msg %>
+                     </div>
+                   <% } if (error_msg) { %>
+                     <div data-alert class="alert-box warning radius" style="color : red">
+                   <%= error_msg %>
+                     </div>
+               <% } %>
+
+                 <!-- LOGIN FORM -->
+                 <form action="/login" method="post">
+                     <div class="form-group">
+                         <label>Phone No</label>
+                         <input type="text" class="form-control" name="username">
+                     </div>
+                     <div class="form-group">
+                         <label>Password</label>
+                         <input type="password" class="form-control" name="password">
+                     </div>
+
+                     <button type="submit" class="btn btn-warning btn-lg">Login</button>
+                 </form>
+
+                 <hr>
+
+                 <p>Need an account? <a href="/signup">Signup</a></p>
+                 <p>Or go <a href="/">home</a>.</p>
+
+             </div>
+
+             </div>
+           </section>
+
+            </div>
+         </div>
+      </div>
+
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
+     </div>
+  </div>
+  <!-- FOOTER -->
 
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
 
-    <hr>
+  <% include ../partial/footer.ejs %>
 
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
 
-</div>
-
-</div>
+<% include ../partial/footer-script.ejs %>
 </body>
 </html>
