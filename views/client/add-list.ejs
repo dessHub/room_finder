@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<% include ../partial/head.ejs %>
+<body>
+
+  <% include ../partial/heady.ejs %>
+
+  <!-- ASIDE NAV AND CONTENT -->
+  <div class="line">
+     <div class="box">
+        <div class="margin2x">
+           <!-- CONTENT -->
+           <section class="s-12 m-8 l-9 center">
+             <div class="">
+
+             <div class="col-sm-6 col-sm-offset-3">
+
+                 <h1><span class="fa fa-sign-in"></span> Create Business Listing</h1>
+
+                 <!-- show any messages that come back with authentication -->
+                 <% if (success_msg){ %>
+                     <div data-alert class="alert-box alert success radius" style="color : green">
+                   <%= success_msg %>
+                     </div>
+                   <% } if (error_msg) { %>
+                     <div data-alert class="alert-box warning radius" style="color : red">
+                   <%= error_msg %>
+                     </div>
+               <% } %>
+
+                 <!-- LOGIN FORM -->
+
+                                     <form id="contact-form" method="POST" action="/add-list" enctype="multipart/form-data" >
+                                       <div class="row">
+                                     <div class="col-md-6 col-sm-12 col-xs-12">
+                                       <div class="">
+                                        <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
+                                          <option  value="">Select Category</option>
+                                          <option  value="Appartments & Rooms for Rent">Appartments & Rooms for Rent</option>
+                                          <option  value="Appartments & Rooms for Sale">Appartments & Rooms for Sale</option>
+                                          <option  value="Cottages">Cottages</option>
+                                          <option  value="Conference Halls">Conference Halls</option>
+                                          <option  value="Hotel Rooms">Hotel Rooms</option>
+                                          <option  value="Shops/Office Space">Shops/Office Space</option>
+                                        </select>
+                                      </div>
+                                     </div>
+                                     <div class="col-md-6 col-sm-12 col-xs-12">
+                                       <div class="">
+                                        <select class="form-control" id="location" required="true" name="location" style="background-color : inherit">
+                                          <option value="">Select Location</option>
+                                          <option value="Tudor">Tudor</option>
+                                          <option value="Kaachonjo">Kaa Chonjo</option>
+                                          <option value="Makupa">Makupa</option>
+                                          <option value="Sabasaba">Saba saba</option>
+
+
+                                        </select>
+                                      </div>
+                                     </div>
+
+                                    </div><br>
+                                      <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                      <div class="form-group">
+                                          <label>Adds Title:</label>
+                                           <input class="form-control" type="text" name="title" required="true"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Business Logo:</label>
+                                             <input type="file" name="image" required="true"/>
+                                        </div>
+
+                                      </div>
+                                      <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Business Description:</label>
+                                             <textarea class="form-control" rows="4" name="info" required="true"></textarea>
+                                          </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-offset-3 col-md-9 col-sm-12 col-xs-12">
+                                        <button type="submit" class="btn btn-style blue">Create</button>
+                                        <button type="cancel" class="btn btn-style blue">Cancel</button>
+                                      </div>
+                                    </div>
+
+                                  </form>
+
+             </div>
+
+             </div>
+           </section>
+
+            </div>
+         </div>
+      </div>
+
+        </div>
+     </div>
+  </div>
+  <!-- FOOTER -->
+
+
+  <% include ../partial/footer.ejs %>
+
+
+<% include ../partial/footer-script.ejs %>
+</body>
+</html>

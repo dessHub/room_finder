@@ -82,6 +82,269 @@
 
   <% include ../partial/footer.ejs %>
 
+  <!-- ========Modals ========== -->
+
+  <!-- ========Update Modal ========== -->
+  <div id="updateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Room details</h4>
+        </div>
+        <% for(i=0; i<room.length; i++) { %>
+        <div class="modal-body container-fluid">
+          <form id="contact-form" method="POST" action="/update<%= room[i].id %>" >
+            <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="">
+             <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
+               <option  value="<%= room[i].category %>"><%= room[i].category %></option>
+               <option  value="Single Room">Single</option>
+               <option  value="Bed Sitter">Bed Sitter</option>
+               <option  value="One Bedroom">One Bedroom</option>
+               <option  value="Two Bedroom">Two BedRoom/option>
+               <option  value="Three Bedroom">Three BedRoom</option>
+             </select>
+           </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="">
+             <select class="form-control" id="location" required="true" name="location" style="background-color : inherit">
+               <option value="<%= room[i].location %>"><%= room[i].location %></option>
+               <option value="Tudor">Tudor</option>
+               <option value="Kaachonjo">Kaa Chonjo</option>
+               <option value="Makupa">Makupa</option>
+               <option value="Sabasaba">Saba saba</option>
+
+
+             </select>
+           </div>
+          </div>
+
+         </div><br>
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div class="form-group">
+               <label>Ads Title:</label>
+                <input class="form-control" type="text" name="title" value="<%= room[i].title %>" required="true"/>
+             </div>
+
+            <div class="form-group">
+             <label>Price:</label>
+                <input class="form-control" type="text" name="price" value="<%= room[i].price %>"required="true"/>
+            </div>
+
+           </div>
+           <div class="col-md-6 col-sm-12 col-xs-12">
+
+             <div class="">
+              <select class="form-control" id="status" required="true" name="status" style="background-color : inherit">
+                <option value="<%= room[i].status %>"><%= room[i].status %></option>
+                <option value="Vacant">Vacant</option>
+                <option value="To Be Vacant">To Be Vacant</option>
+                <option value="Occupied">Occupied</option>
+
+
+              </select>
+            </div>
+             <div class="form-group">
+                 <label>More Information:</label>
+                  <textarea class="form-control" rows="3" name="info" required="true"><%= room[i].info %></textarea>
+               </div>
+
+             </div>
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <button type="submit" class="btn btn-style blue">Update</button>
+             <button type="cancel" class="btn btn-style blue">Cancel</button>
+           </div>
+         </div>
+
+           </form>
+        </div>
+        <% } %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========Profile Image Modal ========== -->
+
+  <!-- ========Modals ========== -->
+  <div id="profModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Room Image</h4>
+        </div>
+        <% for(i=0; i<room.length; i++) { %>
+        <div class="modal-body container-fluid">
+          <form id="contact-form" method="POST" action="/image<%= room[i].id %>" enctype="multipart/form-data" >
+
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div class="form-group">
+               <label>Image:</label>
+                <input type="file" name="image" required="true"/>
+             </div>
+
+           </div>
+
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <button type="submit" class="btn btn-style blue">Update</button>
+             <button type="cancel" class="btn btn-style blue">Cancel</button>
+           </div>
+         </div>
+
+           </form>
+        </div>
+        <% } %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========Album Modal ========== -->
+  <div id="albumModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Room Images</h4>
+        </div>
+        <% for(i=0; i<room.length; i++) { %>
+        <div class="modal-body container-fluid">
+          <form id="contact-form" method="POST" action="/addimage<%= room[i].id %>" enctype="multipart/form-data" >
+
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div class="form-group">
+               <label>Image:</label>
+                <input type="file" name="image" required="true"/>
+             </div>
+
+           </div>
+
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <button type="submit" class="btn btn-style blue">Update</button>
+             <button type="cancel" class="btn btn-style blue">Cancel</button>
+           </div>
+         </div>
+
+           </form>
+        </div>
+        <% } %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========Album Modal ========== -->
+  <div id="delModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Room Images</h4>
+        </div>
+        <% for(i=0; i<room.length; i++) { %>
+        <div class="modal-body container-fluid">
+
+
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div >
+               <h3>Are you sure you want to delete this room?</h3>
+             </div>
+
+           </div>
+
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <a href="/delroom<%= room[i].id %>" class="btn btn-danger">Yes</a>
+             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+           </div>
+         </div>
+
+
+        </div>
+        <% } %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========Delete Album Modal ========== -->
+  <% for(i=0; i<album.length; i++) { %>
+  <div id="<%= album[i].id %>" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete Room Image</h4>
+        </div>
+
+        <div class="modal-body container-fluid">
+
+
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div >
+               <h3>Are you sure you want to delete this image?</h3>
+             </div>
+
+           </div>
+
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <a href="/delalbum/<%= album[i].room %>/<%= album[i].id %>" class="btn btn-danger">Yes</a>
+             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+           </div>
+         </div>
+
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <% } %>
+
 
 <% include ../partial/footer-script.ejs %>
 </body>

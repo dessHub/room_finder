@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<% include ../partial/head.ejs %>
+<body>
+
+  <% include ../partial/heady.ejs %>
+<div class="row">
+<div class="col-lg-offset-1 col-lg-8 col-md-offset-1 col-md-8 col-xs-12">
+  <div id="single" class="index-items">
+
+ <% for(i=0; i<list.length; i++) { %>
+ <div class="row">
+
+ <div class="col-md-3 col-xs-6">
+   <div class=" index-item-box container-fluid">
+
+ <div class="index-content-box">
+   <a href="" class=""><img src="/<%= list[i].image %>" alt="" class="" height='170px' width='140px' ></a>
+
+ </div>
+ <a class="btn btn-primary" style="margin-bottom:5px;margin-left:30px; text-align:center;" data-toggle="modal" data-target="#profModal">Update Image</a>
+</div>
+ </div>
+ <div class="col-md-6 col-xs-6">
+   <div class=" index-item-box container-fluid">
+     <div class="text-center" ><h3><strong><%= list[i].title %> </strong>  </h3></div>
+ <div class="row">
+
+   <div class="col-md-6 col-xs-12">
+    <h4><strong>Category:</strong><%= list[i].category %> </h4>
+    <h4><strong>Location:</strong><%= list[i].location %> </h4>
+   </div>
+ </div>
+ <div class="text-center" ><p><strong></strong> <%= list[i].info %> </p></div>
+</div>
+ </div>
+ <div class="col-md-3 col-xs-12">
+   <div class=" index-item-box container-fluid">
+
+ <div class="index-content-box">
+
+   <div class="index-cont" style="padding-top:40px">
+     <a class="btn btn-success" style="margin-bottom:5px" data-toggle="modal" data-target="#updateModal">Update</a>
+     <a class="btn btn-warning" style="margin-bottom:5px" data-toggle="modal" data-target="#albumModal">Add Image</a>
+    <a class="btn btn-danger" style="margin-bottom:5px" data-toggle="modal" data-target="#delModal">Delete Room</a>
+   </div>
+ </div>
+</div>
+ </div>
+
+</div>
+<% } %>
+
+<hr><br>
+<div class="row">
+<div class="col-md-offset-1 col-md-3 col-xs-6">
+
+</div>
+</div>
+
+  </div>
+</div>
+<div class="col-lg-2 col-md-2 col-xs-12">
+
+
+</div>
+</div>
+
+  <% include ../partial/footer.ejs %>
+
+  <!-- ========Modals ========== -->
+
+  <!-- ========Update Modal ========== -->
+  <div id="updateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Business details</h4>
+        </div>
+        <% for(i=0; i<list.length; i++) { %>
+        <div class="modal-body container-fluid">
+          <form id="contact-form" method="POST" action="/update<%= list[i].id %>" >
+            <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="">
+             <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
+               <option  value="<%= list[i].category %>"><%= list[i].category %></option>
+               <option  value="Single Room">Single</option>
+               <option  value="Bed Sitter">Bed Sitter</option>
+               <option  value="One Bedroom">One Bedroom</option>
+               <option  value="Two Bedroom">Two BedRoom/option>
+               <option  value="Three Bedroom">Three BedRoom</option>
+             </select>
+           </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="">
+             <select class="form-control" id="location" required="true" name="location" style="background-color : inherit">
+               <option value="<%= list[i].location %>"><%= list[i].location %></option>
+               <option value="Tudor">Tudor</option>
+               <option value="Kaachonjo">Kaa Chonjo</option>
+               <option value="Makupa">Makupa</option>
+               <option value="Sabasaba">Saba saba</option>
+
+
+             </select>
+           </div>
+          </div>
+
+         </div><br>
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div class="form-group">
+               <label>Ads Title:</label>
+                <input class="form-control" type="text" name="title" value="<%= list[i].title %>" required="true"/>
+             </div>
+
+
+           </div>
+           <div class="col-md-6 col-sm-12 col-xs-12">
+
+             <div class="">
+              <select class="form-control" id="status" required="true" name="status" style="background-color : inherit">
+                <option value="<%= list[i].status %>"><%= list[i].status %></option>
+                <option value="Vacant">Vacant</option>
+                <option value="To Be Vacant">To Be Vacant</option>
+                <option value="Occupied">Occupied</option>
+
+
+              </select>
+            </div>
+             <div class="form-group">
+                 <label>More Information:</label>
+                  <textarea class="form-control" rows="3" name="info" required="true"><%= list[i].info %></textarea>
+               </div>
+
+             </div>
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <button type="submit" class="btn btn-style blue">Update</button>
+             <button type="cancel" class="btn btn-style blue">Cancel</button>
+           </div>
+         </div>
+
+           </form>
+        </div>
+        <% } %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========Profile Image Modal ========== -->
+
+  <!-- ========Modals ========== -->
+  <div id="profModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Business Logo</h4>
+        </div>
+        <% for(i=0; i<list.length; i++) { %>
+        <div class="modal-body container-fluid">
+          <form id="contact-form" method="POST" action="/logo<%= list[i].id %>" enctype="multipart/form-data" >
+
+           <div class="row">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+           <div class="form-group">
+               <label>Image:</label>
+                <input type="file" name="image" required="true"/>
+             </div>
+
+           </div>
+
+         </div>
+         <div class="row">
+           <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+             <button type="submit" class="btn btn-style blue">Update</button>
+             <button type="cancel" class="btn btn-style blue">Cancel</button>
+           </div>
+         </div>
+
+           </form>
+        </div>
+        <% } %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+
+<% include ../partial/footer-script.ejs %>
+</body>
+</html>

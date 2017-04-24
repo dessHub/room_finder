@@ -4,6 +4,7 @@ var fs = require('fs');
 var pictures = multer({});
 var Room = require('../models/rooms');
 var Album = require('../models/album');
+var List = require('../models/list');
 
 var mongoose = require('mongoose');
 
@@ -108,6 +109,47 @@ module.exports = function(app, passport) {
 
     });
 
+    app.post('/add-list', upload.single('image'), function(req, res){
+      var location = req.body.location;
+      var title = req.body.title;
+      var category = req.body.category;
+      var info = req.body.info;
+      var user = req.user;
+      var status = "Pending";
+      var image = req.image;
+      var tmp_path = req.file.path;
+
+       /** The original name of the uploaded file
+           stored in the variable "originalname". **/
+       var target_path = 'uploads/' + req.file.originalname;
+       /** A better way to copy the uploaded file. **/
+       var src = fs.createReadStream(tmp_path);
+       var dest = fs.createWriteStream(target_path);
+       src.pipe(dest);
+       fs.unlink(tmp_path); //deleting the tmp_path
+
+           var list = new List();
+             list.category = category;
+             list.title = title;
+             list.location = location;
+             list.image = target_path;
+             list.status = status;
+             list.info = info;
+             list.user = user;
+             list.date = Date();
+           list.save(function(err, list){
+             if(err) return err;
+
+             var id = list.id;
+             console.log(id);
+             var lin = "list" + id ;
+             console.log("saved")
+             req.flash("success_msg", "Your Listing successfully created")
+             res.redirect(lin);
+           });
+
+    });
+
     app.get('/room:id', function(req, res){
       Room.find({"_id":req.params.id}, function(err, room){
         if(err) return err;
@@ -121,12 +163,21 @@ module.exports = function(app, passport) {
       })
     });
 
+    app.get('/list:id', function(req, res){
+      List.find({"_id":req.params.id}, function(err, list){
+        if(err) return err;
+
+          res.render("client/list.ejs", {list:list});
+
+      })
+    });
+
    app.get('/delroom:id', function(req, res){
      Room.remove({"_id":req.params.id},function(err, room){
          if(err) return err;
 
          console.log("removed");
-         res.redirect('/admin-vacant');
+         res.redirect('/home');
        })
    });
 

@@ -15,10 +15,10 @@
               <div class="margin">
                 <% for(i=0; i<rooms.length; i++) { %>
                  <div class="s-12 m-6 l-4">
-                   <a href="/clroom<%= rooms[i].id %>"><h4 class="" style="color : blue"><%= rooms[i].title %></h4></a>
+                   <a href="/room<%= rooms[i].id %>"><h4 class="" style="color : blue"><%= rooms[i].title %></h4></a>
                    <div class="s-12 m-4 l-4">
 
-                    <a href="/clroom<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>" ></a>
+                    <a href="/room<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>" ></a>
                     </div>
                     <div class="s-12 m-8 l-8" style="padding-left : 4px;">
                     <h4 class="margin-bottom"><strong>Location</strong> | <%= rooms[i].location %></h4>

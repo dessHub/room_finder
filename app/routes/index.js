@@ -23,11 +23,24 @@ module.exports = function(app, passport) {
 
     });
 
-    app.get('/add-ads', isLoggedIn,function(req, res){
+    app.get('/client-ads', function(req, res){
+      Room.find({user:req.user.id}, function(err, rooms){
+        if(err) throw err;
 
+        res.render('client/client-ads.ejs', {rooms:rooms});
+      })
+
+    });
+
+    app.get('/add-ads', isLoggedIn,function(req, res){
 
         res.render('client/add-ads.ejs');
 
+    });
+
+    app.get('/add-list', isLoggedIn,function(req, res){
+
+        res.render('client/add-list.ejs');
 
     });
 
