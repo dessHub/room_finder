@@ -95,7 +95,6 @@ module.exports = function(app, passport) {
              room.info = info;
              room.user = user;
              room.date = Date();
-             console.log(room.location);
            room.save(function(err, room){
              if(err) return err;
 
@@ -167,7 +166,25 @@ module.exports = function(app, passport) {
       List.find({"_id":req.params.id}, function(err, list){
         if(err) return err;
 
-          res.render("client/list.ejs", {list:list});
+          res.render("client/list-edit.ejs", {list:list});
+
+      })
+    });
+
+    app.get('/clist:id', function(req, res){
+      List.find({"_id":req.params.id}, function(err, list){
+        if(err) return err;
+
+        var cat = "";
+        for(i=0; i<list.length; i++){
+          cat = list[i].category;
+        }
+        List.find({"category":cat}, function(err, cat){
+          if(err) throw err;
+
+          res.render("client/list.ejs", {list:list, cat:cat});
+
+        })
 
       })
     });
@@ -176,7 +193,6 @@ module.exports = function(app, passport) {
      Room.remove({"_id":req.params.id},function(err, room){
          if(err) return err;
 
-         console.log("removed");
          res.redirect('/home');
        })
    });
@@ -189,7 +205,6 @@ module.exports = function(app, passport) {
      Album.remove({"_id":req.params.alid},function(err, album){
          if(err) return err;
 
-         console.log("removed");
          res.redirect(lin);
        });
    });

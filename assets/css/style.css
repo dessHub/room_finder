@@ -108,11 +108,12 @@ nav {
 }
 
 .search {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 10px;
+  height:auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #80b3ff;
 }
+
 
 .dash-top {
   margin-top: 0px;

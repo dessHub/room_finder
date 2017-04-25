@@ -2,9 +2,10 @@
 <html>
 <% include ../partial/head.ejs %>
 <body>
-
+<header>
   <% include ../partial/heady.ejs %>
-
+  <% include ../partial/search-list.ejs %>
+</header>
   <!-- ASIDE NAV AND CONTENT -->
   <div class="line">
      <div class="box">
@@ -15,17 +16,14 @@
               <div class="margin">
                 <% for(i=0; i<rooms.length; i++) { %>
                  <div class="s-12 m-6 l-6">
-                   <a href="/clroom<%= rooms[i].id %>"><h3 class="" style="color : blue"><%= rooms[i].title %></h3></a>
+                   <a href="/clist<%= rooms[i].id %>"><h3 class="" style="color : blue"><%= rooms[i].title %></h3></a>
                    <div class="s-12 m-4 l-4">
 
-                    <a href="/clroom<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>"></a>
+                    <a href="/clist<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>" class="img-responsive thumbnail" style="height:117px; width:100px;"></a>
                     </div>
                     <div class="s-12 m-8 l-8" style="padding-left : 4px;">
                     <h4 class="margin-bottom"><strong>Location</strong> | <%= rooms[i].location %></h4>
                     <h4 class="margin-bottom" style=" color : #4d4d00;"><strong> <%= rooms[i].info %></strong></h4>
-                    <div class="customform s-12 margin-bottom2x center">
-                       <h2 style="text-align : center; color : blue;"><strong>Ksh.</strong> | <%= rooms[i].price %></h2>
-                    </div>
                  </div>
                  </div>
                   <% } %>

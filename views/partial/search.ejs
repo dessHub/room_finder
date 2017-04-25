@@ -1,34 +1,18 @@
 <!-- /contact info -->
-<div style="">
-        <form id="contact-form" method="POST" action="/search" >
+<div class="line search">
+        <form id="contact-form" method="GET" action="/ads" class="form-inline">
         <div class="col-md-offset-2 col-md-3 col-sm-12 col-xs-12">
           <div class="">
-           <select class="form-control" id="cat" name="Category" required="true" style="background-color : white">
-             <option  value="">Select Category</option>
-             <option  value="All">All</option>
-             <option  value="single">Single</option>
-             <option  value="bedsitter">Bed Sitter</option>
-             <option  value="one">One Bedroom</option>
-             <option  value="two">Two BedRooms</option>
-             <option  value="three">Three BedRooms</option>
-           </select>
+
          </div>
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12">
-          <div class="">
-           <select class="form-control" id="location" required="true" name="location" style="background-color : white">
-             <option value="">Select Location</option>
-             <option  value="All">All</option>
-             <option value="Tudor">Tudor</option>
-             <option value="Kaachonjo">Kaa Chonjo</option>
-             <option value="Makupa">Makupa</option>
-             <option value="Sabasaba">Saba saba</option>
-
-           </select>
+          <div class="form-group">
+         <input type="text" name="location" placeholder="search location" required="true" style="height:35px" class="form-control">
          </div>
         </div>
          <div class="col-md-3 col-sm-12 col-xs-12">
            <button type="submit" class="btn btn-style blue">Search</button>
          </div>
          </form>
-       </div><br><br>
+       </div>
