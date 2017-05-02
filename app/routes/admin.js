@@ -16,48 +16,76 @@ module.exports = function(app, passport) {
     // =====================================
     app.get('/profile', isLoggedIn, function(req, res) {
 
-      console.log(req.user);
-        res.render('admin/index.ejs', {
-            user : req.user // get the user out of session and pass to template
+       User.find({role:"normal"}, function(err, users){
+         if(err) return err;
 
-        });
-    });
-
-    // =====================================
-    app.get('/admin-vacant', isLoggedIn, function(req, res) {
-
-      Room.find({"status":"Vacant"}, function(err, rooms){
-        if(err) return err;
-
-        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
-      })
+         var count = users.length;
+         console.log(users);
+         res.render('admin/index.ejs', {
+             user : req.user, // get the user out of session and pass to template
+             users : users,
+             count : count
+         });
+       })
 
     });
 
     // =====================================
-    app.get('/admin-tobe', isLoggedIn, function(req, res) {
-      Room.find({"status":"To Be Vacant"}, function(err, rooms){
-        if(err) return err;
+    app.get('/ads_all', isLoggedIn, function(req, res) {
 
-        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
-      })
-    });
-
-    // =====================================
-    app.get('/admin-occupied', isLoggedIn, function(req, res) {
-      Room.find({"status":"Occupied"}, function(err, rooms){
-        if(err) return err;
-
-        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
-      })
-    });
-
-    // =====================================
-    app.get('/admin-all', isLoggedIn, function(req, res) {
       Room.find({}, function(err, rooms){
         if(err) return err;
 
+        console.log(rooms);
         res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+      })
+
+    });
+
+    // =====================================
+    app.get('/ads_pending', isLoggedIn, function(req, res) {
+      console.log("hereee");
+      Room.find({status:"Pending"}, function(err, rooms){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+      })
+
+    });
+
+    // =====================================
+    app.get('/ads_live', isLoggedIn, function(req, res) {
+      Room.find({status:"Live"}, function(err, rooms){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+      })
+    });
+
+    // =====================================
+    app.get('/list_all', isLoggedIn, function(req, res) {
+      List.find({}, function(err, list){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:list}); // load the index.ejs file
+      })
+    });
+
+    // =====================================
+    app.get('/list_pending', isLoggedIn, function(req, res) {
+      List.find({status:"Pending"}, function(err, lists){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:lists}); // load the index.ejs file
+      })
+    });
+
+    // =====================================
+    app.get('/list_live', isLoggedIn, function(req, res) {
+      list.find({status:"Live"}, function(err, lisrs){
+        if(err) return err;
+
+        res.render('admin/rooms.ejs', {rooms:list}); // load the index.ejs file
       })
     });
 
