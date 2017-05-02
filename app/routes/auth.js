@@ -118,6 +118,29 @@ module.exports = function(app, passport) {
         }
       });
 
+      //Admin can change roles for users via this route
+app.get('/role/:phoneno/:role', function (req, res){
+  var role = req.params.role;
+    var username = req.params.phoneno;
+    console.log(username);
+    User.getUserByUsername(username, function(err, user){
+      if(err) return err;
+      console.log(user);
+      if(user){
+        if(role == 'admin'){
+          user.update({role:role}, function(err, user){
+            if(err) return(err)
+            res.redirect('/');
+          });
+        }
+      }else{
+        res.send("user does not exist");
+      }
+    });
+
+})
+
+
 
   // =====================================
   // LOGOUT ==============================

@@ -31,7 +31,7 @@
         <div class="  container-fluid">
 
       <div class="index-content-box">
-        <a href="" class=""><img src="/<%= room[i].image %>" alt="" class="" height='170px' width='140px' ></a>
+        <a href="" class=""><img src="/<%= room[i].image %>" alt="" class="img-responsive thumbnail" style="height:140px; width:140px;" ></a>
 
       </div>
 
@@ -46,14 +46,15 @@
 
          <h5><strong>Location:</strong><%= room[i].location %> </h5>
          <h5><strong>Category:</strong> <%= room[i].category %> </h5>
-         <div class="text-center" style="background-color :#f5f5ef; padding-top:12px" ><p><strong></strong> <%= room[i].info %> </p></div>
+         <div class="text-center" style="background-color :#f5f5ef; padding-top:12px" ><h4><strong></strong> <%= room[i].info %> </h4></div>
         </div>
         <div class="col-md-2 col-xs-12">
+          <% for(y=0; y<agent.length; y++) { %>
           <h4><strong>Agent </strong>  </h4>
-          <h5><strong>Name:</strong><%= room[i].name %> </h5>
-          <h5><strong>Email:</strong><%= room[i].email %></h5>
-          <h5><strong>Mobile No:</strong> <%= room[i].phoneno %> </h5>
-
+          <h5><strong>Name:</strong><%= agent[y].name %> </h5>
+          <h5><strong>Email:</strong><%= agent[y].email %></h5>
+          <h5><strong>Mobile No:</strong> <%= agent[y].phoneno %> </h5>
+             <% } %>
 
         </div>
       </div>

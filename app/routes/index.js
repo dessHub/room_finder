@@ -1,6 +1,7 @@
 var Room = require('../models/rooms');
 var Album = require('../models/album');
 var List = require('../models/list');
+var User = require('../models/user');
 
 module.exports = function(app, passport) {
 
@@ -10,10 +11,17 @@ module.exports = function(app, passport) {
       Room.find({}, function(err, rooms){
         if(err) throw err;
 
-        res.render('client/home.ejs', {rooms:rooms});
-      })
+        List.find({}, function(err, list){
+          if(err) throw err;
 
+        res.render('client/home.ejs', {rooms:rooms, list:list});
+      })
+     })
     });
+
+    app.get('/g', function(req, res){
+      res.render('client/geo.ejs');
+    })
 
     app.get('/ads', function(req, res){
     //eval(require('locus'));
@@ -34,6 +42,18 @@ module.exports = function(app, passport) {
         res.render('client/vacant.ejs', {rooms:rooms});
       })
     }
+
+    });
+
+    app.get('/ads:cat', function(req, res){
+
+      var cate = req.params.cat;
+      Room.find({"category":cate}, function(err, rooms){
+        if(err) throw err;
+
+        res.render('client/vacant.ejs', {rooms:rooms});
+      })
+
 
     });
 
@@ -93,8 +113,10 @@ module.exports = function(app, passport) {
         if(err) return err;
 
          var cat = "";
+         var user = "";
          for(i=0; i<room.length; i++){
            cat = room[i].category;
+           user = room[i].user;
          }
 
         Album.find({"room":req.params.id}, function(err, album){
@@ -103,7 +125,12 @@ module.exports = function(app, passport) {
            Room.find({"category":cat}, function(err, cat){
              if(err) return err;
 
-             res.render("client/room.ejs", {room:room, album:album, cat:cat});
+              User.find({"user":user}, function(err, agent){
+                if(err) return err;
+
+                res.render("client/room.ejs", {room:room, album:album, cat:cat, agent:agent});
+              })
+
            })
 
         })

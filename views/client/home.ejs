@@ -14,6 +14,19 @@
          <section class="s-12 m-8 l-9 center">
             <h1>Top Ads</h1>
             <div class="margin">
+              <% if(rooms.length>3) { %>
+                <% for(i=0; i<3; i++) { %>
+               <div class="s-12 m-6 l-4">
+                 <a href="/clroom<%= rooms[i].id %>"><h4 class="" style="color : blue"><%= rooms[i].title %></h4></a>
+                  <a href="/clroom<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>"></a>
+                  <h4 class="margin-bottom"><strong>Location</strong> | <%= rooms[i].location %></h4>
+                  <h4 class="margin-bottom"><strong>Posted On</strong> | <%= rooms[i].date %></h4>
+                  <div class="customform s-12 margin-bottom2x center">
+                     <h2 style="text-align : center; color : blue;"><strong>Ksh.</strong> | <%= rooms[i].price %></h2>
+                  </div>
+               </div>
+               <% } %>
+                <% }else{ %>
               <% for(i=0; i<rooms.length; i++) { %>
                <div class="s-12 m-6 l-4">
                  <a href="/clroom<%= rooms[i].id %>"><h4 class="" style="color : blue"><%= rooms[i].title %></h4></a>
@@ -24,6 +37,35 @@
                      <h2 style="text-align : center; color : blue;"><strong>Ksh.</strong> | <%= rooms[i].price %></h2>
                   </div>
                </div>
+                <% } %>
+                <% } %>
+            </div>
+            <h1>Top Listings</h1>
+            <div class="margin">
+              <% if(list.length>3) { %>
+                <% for(i=0; i<3; i++) { %>
+                 <div class="s-12 m-6 l-4">
+                   <a href="/clroom<%= list[i].id %>"><h4 class="" style="color : blue"><%= list[i].title %></h4></a>
+                    <a href="/clroom<%= list[i].id %>"><img src="/<%= list[i].image %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
+                    <h4 class="margin-bottom"><strong>Location</strong> | <%= list[i].location %></h4>
+                    <h4 class="margin-bottom"><strong>Posted On</strong> | <%= list[i].date %></h4>
+                    <div class="customform s-12 margin-bottom2x center">
+                       <h4 style="text-align : center; color : blue;"><strong></strong> | <%= list[i].info %></h4>
+                    </div>
+                 </div>
+                  <% } %>
+                   <% }else{ %>
+              <% for(i=0; i<list.length; i++) { %>
+               <div class="s-12 m-6 l-4">
+                 <a href="/clist<%= list[i].id %>"><h4 class="" style="color : blue"><%= list[i].title %></h4></a>
+                  <a href="/clist<%= list[i].id %>"><img src="/<%= list[i].image %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
+                  <h4 class="margin-bottom"><strong>Location</strong> | <%= list[i].location %></h4>
+                  <h4 class="margin-bottom"><strong>Posted On</strong> | <%= list[i].date %></h4>
+                  <div class="customform s-12 margin-bottom2x center">
+                     <h4 style="text-align : center; color : blue;"><strong></strong> | <%= list[i].info %></h4>
+                  </div>
+               </div>
+                <% } %>
                 <% } %>
             </div>
          </section>

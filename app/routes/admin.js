@@ -5,6 +5,7 @@ var pictures = multer({});
 var Room = require('../models/rooms');
 var Album = require('../models/album');
 var List = require('../models/list');
+var User = require('../models/user');
 
 var mongoose = require('mongoose');
 
@@ -66,7 +67,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/add', upload.single('image'), function(req, res){
-      var location = req.body.location;
+      var location = req.body.name;
       var title = req.body.title;
       var category = req.body.category;
       var info = req.body.info;
@@ -84,6 +85,8 @@ module.exports = function(app, passport) {
        var dest = fs.createWriteStream(target_path);
        src.pipe(dest);
        fs.unlink(tmp_path); //deleting the tmp_path
+       console.log(location);
+       eval(require('locus'))
 
            var room = new Room();
              room.category = category;
@@ -166,8 +169,7 @@ module.exports = function(app, passport) {
       List.find({"_id":req.params.id}, function(err, list){
         if(err) return err;
 
-          res.render("client/list-edit.ejs", {list:list});
-
+        res.render("client/list-edit.ejs", {list:list});
       })
     });
 
@@ -176,13 +178,21 @@ module.exports = function(app, passport) {
         if(err) return err;
 
         var cat = "";
+        var user = "";
         for(i=0; i<list.length; i++){
           cat = list[i].category;
+          user = list[i].user;
         }
         List.find({"category":cat}, function(err, cat){
           if(err) throw err;
 
-          res.render("client/list.ejs", {list:list, cat:cat});
+          User.find({"_id":user}, function(err, agent){
+            if(err) return err;
+
+               console.log(agent);
+               res.render("client/list.ejs", {list:list, cat:cat, agent:agent});
+          })
+
 
         })
 

@@ -97,7 +97,6 @@ app.set('port',(process.env.PORT || 8080));
 app.listen(app.get('port'),function(){
   console.log('Running on port '+app.get('port'));
   console.log("connected to mongo ", configDB.getDB(env));
-console.log(env + ' Server running on localhost:'  );
 });
 
 module.exports = app;

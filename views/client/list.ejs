@@ -42,14 +42,15 @@
 
          <h5><strong>Location:</strong><%= list[i].location %> </h5>
          <h5><strong>Category:</strong> <%= list[i].category %> </h5>
-         <div class="text-center" style="background-color :#f5f5ef; padding-top:12px" ><p><strong></strong> <%= list[i].info %> </p></div>
+         <div class="text-center" style="background-color :#f5f5ef; padding-top:12px" ><h4><strong></strong> <%= list[i].info %> </h4></div>
         </div>
         <div class="col-md-2 col-xs-12">
+          <% for(y=0; y<agent.length; y++) { %>
           <h4><strong>Agent </strong>  </h4>
-          <h5><strong>Name:</strong><%= user.name %> </h5>
-          <h5><strong>Email:</strong><%= user.email %></h5>
-          <h5><strong>Mobile No:</strong> <%= user.phoneno %> </h5>
-
+          <h5><strong>Name:</strong><%= agent[y].name %> </h5>
+          <h5><strong>Email:</strong><%= agent[y].email %></h5>
+          <h5><strong>Mobile No:</strong> <%= agent[y].phoneno %> </h5>
+             <% } %>
 
         </div>
       </div>
