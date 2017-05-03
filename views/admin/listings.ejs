@@ -17,19 +17,19 @@
       <div id="single" class="index-items">
 
      <div class="row">
-       <% if(rooms.length>0) { %>
-       <% for(i=0; i<rooms.length; i++) { %>
+       <% if(lists.length>0) { %>
+       <% for(i=0; i<lists.length; i++) { %>
      <div class="col-md-offset-1 col-md-3 col-xs-6">
 
        <div class=" index-item-box">
          <div class="admin-cat-title">
-           <a ><h5><strong><%= rooms[i].category %> </strong>   < / > <%= rooms[i].status %></h></a>
+           <a ><h5><strong><%= lists[i].category %> </strong>   < / > <%= lists[i].status %></h></a>
          </div>
      <div class="index-content-box">
-       <a href="" class=""><img src="/<%= rooms[i].image %>" alt="" class="" height='100px' width='100px' ></a>
+       <a href="" class=""><img src="/<%= lists[i].image %>" alt="" class="" height='100px' width='100px' ></a>
        <div class="index-cont">
-        <h4><strong>Location:</strong><%= rooms[i].location %> </h4>
-        <a href="/room<%= rooms[i].id %>" class="btn btn-success" style="margin-bottom:5px">Update</a>
+        <h4><strong>Location:</strong><%= lists[i].location %> </h4>
+        <a href="/list<%= lists[i].id %>" class="btn btn-success" style="margin-bottom:5px">Update</a>
        </div>
      </div>
    </div>
@@ -39,7 +39,7 @@
   <div class="col-md-offset-1 col-md-8 col-xs-8">
 
     <div class=" jumbotron">
-      <h2>OOPS!!!!. There are no ads yet!</h2>
+      <h2>OOPS!!!!. There are no listings yet!</h2>
 </div>
   </div>
   <% } %>

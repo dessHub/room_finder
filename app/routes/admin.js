@@ -19,31 +19,44 @@ module.exports = function(app, passport) {
        User.find({role:"normal"}, function(err, users){
          if(err) return err;
 
-         var count = users.length;
-         console.log(users);
-         res.render('admin/index.ejs', {
-             user : req.user, // get the user out of session and pass to template
-             users : users,
-             count : count
-         });
+         Room.find({}, function(err, rooms){
+           if(err) return err;
+
+           var room = rooms.length;
+
+           List.find({}, function(err, lists){
+             if(err) throw err;
+
+             var list = lists.length;
+             var count = users.length;
+             res.render('admin/index.ejs', {
+                 user : req.user, // get the user out of session and pass to template
+                 users : users,
+                 count : count,
+                 room : room,
+                 list : list
+             });
+
+           })
+         })
        })
 
     });
 
     // =====================================
-    app.get('/ads_all', isLoggedIn, function(req, res) {
+    app.get('/all_ads', isLoggedIn, function(req, res) {
 
       Room.find({}, function(err, rooms){
         if(err) return err;
 
         console.log(rooms);
-        res.render('admin/rooms.ejs', {rooms:rooms}); // load the index.ejs file
+        res.render('admin/rooms.ejs', {rooms:rooms}); // load the ads.ejs file
       })
 
     });
 
     // =====================================
-    app.get('/ads_pending', isLoggedIn, function(req, res) {
+    app.get('/pending_ads', isLoggedIn, function(req, res) {
       console.log("hereee");
       Room.find({status:"Pending"}, function(err, rooms){
         if(err) return err;
@@ -54,7 +67,7 @@ module.exports = function(app, passport) {
     });
 
     // =====================================
-    app.get('/ads_live', isLoggedIn, function(req, res) {
+    app.get('/live_ads', isLoggedIn, function(req, res) {
       Room.find({status:"Live"}, function(err, rooms){
         if(err) return err;
 
@@ -67,7 +80,7 @@ module.exports = function(app, passport) {
       List.find({}, function(err, list){
         if(err) return err;
 
-        res.render('admin/rooms.ejs', {rooms:list}); // load the index.ejs file
+        res.render('admin/listings.ejs', {lists:list}); // load the index.ejs file
       })
     });
 
@@ -76,16 +89,16 @@ module.exports = function(app, passport) {
       List.find({status:"Pending"}, function(err, lists){
         if(err) return err;
 
-        res.render('admin/rooms.ejs', {rooms:lists}); // load the index.ejs file
+        res.render('admin/listings.ejs', {lists:lists}); // load the index.ejs file
       })
     });
 
     // =====================================
     app.get('/list_live', isLoggedIn, function(req, res) {
-      list.find({status:"Live"}, function(err, lisrs){
+      List.find({status:"Live"}, function(err, list){
         if(err) return err;
 
-        res.render('admin/rooms.ejs', {rooms:list}); // load the index.ejs file
+        res.render('admin/listings.ejs', {lists:list}); // load the index.ejs file
       })
     });
 

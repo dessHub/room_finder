@@ -119,15 +119,19 @@ module.exports = function(app, passport) {
            user = room[i].user;
          }
 
+          console.log(cat);
+            console.log(user);
         Album.find({"room":req.params.id}, function(err, album){
           if(err) return err;
 
            Room.find({"category":cat}, function(err, cat){
              if(err) return err;
 
+                console.log(user);
               User.find({"user":user}, function(err, agent){
                 if(err) return err;
 
+                console.log(agent);
                 res.render("client/room.ejs", {room:room, album:album, cat:cat, agent:agent});
               })
 
