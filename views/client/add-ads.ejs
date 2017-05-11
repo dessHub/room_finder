@@ -49,12 +49,8 @@
                                      </div>
                                      <div class="col-md-6 col-sm-12 col-xs-12">
                                        <div class="">
-                                        <input class="" id="geocomplete" type="text" placeholder="Type in an address" value="Empire State Bldg" />
-                                        <input id="find" type="button" value="find" />
+                                        <input id="geocomplete" name="location" type="text" placeholder="Type in an address" size="90" />
                                       </div>
-                                        <div class="form-group">
-                                      <input class="form-control" name="name" type="text" value="" />
-                                       </div>
                                      </div>
 
                                     </div><br>
@@ -93,7 +89,9 @@
 
 
 
-             </div>
+             </div><br><br>
+
+             <div class="map_canvas"></div>
 
              </div>
            </section>
@@ -109,25 +107,9 @@
 
 
   <% include ../partial/footer.ejs %>
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <% include ../partial/footer-script.ejs %>
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIe8cYBjdhd7b6gxTn-pVH-2HZd2kh34Y&libraries=places"
+  type="text/javascript"></script>-->
 
-  <script src="assets/js/jquery.geocomplete.js"></script>
-  <script src="assets/js/jquery.geocomplete.min.js"></script>
-
-  <script>
-    $(function(){
-      $("#geocomplete").geocomplete({
-        map: ".map_canvas",
-        details: "form",
-        types: ["geocode", "establishment"],
-      });
-
-      $("#find").click(function(){
-        $("#geocomplete").trigger("geocode");
-      });
-    });
-  </script>
-<% include ../partial/footer-script.ejs %>
 </body>
 </html>

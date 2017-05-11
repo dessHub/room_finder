@@ -108,7 +108,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/add', upload.single('image'), function(req, res){
-      var location = req.body.name;
+      var location = req.body.location;
       var title = req.body.title;
       var category = req.body.category;
       var info = req.body.info;
@@ -127,7 +127,6 @@ module.exports = function(app, passport) {
        src.pipe(dest);
        fs.unlink(tmp_path); //deleting the tmp_path
        console.log(location);
-       eval(require('locus'))
 
            var room = new Room();
              room.category = category;

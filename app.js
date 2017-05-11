@@ -93,7 +93,7 @@ require('./app/routes/auth.js')(app, passport);
 require('./app/routes/admin.js')(app, passport);
 
 
-app.set('port',(process.env.PORT || 8080));
+app.set('port',(process.env.PORT || 8000));
 app.listen(app.get('port'),function(){
   console.log('Running on port '+app.get('port'));
   console.log("connected to mongo ", configDB.getDB(env));

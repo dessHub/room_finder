@@ -43,6 +43,9 @@
       <div class="row">
 
         <div class="col-md-10 col-xs-12">
+          <div class="">
+           <input id="geocomplete" name="location" type="text" placeholder="Type in an address" size="90" value="<%= room[i].location %>" />
+         </div>
 
          <h5><strong>Location:</strong><%= room[i].location %> </h5>
          <h5><strong>Category:</strong> <%= room[i].category %> </h5>
@@ -78,6 +81,7 @@
        <% } %>
    </div>
      </div>
+     <div class="map_canvas"></div>
 </div>
   <div class="l-3 m-3 s-12 aside">
     <h3 class="subtitle">Related Category</h3>
