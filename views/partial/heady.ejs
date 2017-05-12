@@ -10,7 +10,7 @@
                <div class="s-12 l-6 " >
                  <nav>
                     <p class="nav-text">Main Categories</p>
-                    <div class="top-nav s-12 l-12 center" >
+                    <div class="top-nav s-12 l-12 " >
                        <ul>
                           <li>
                              <a href="/ads">Property Ads</a>
@@ -27,10 +27,10 @@
                           <li>
                              <a href="/list">Business Listings</a>
                              <ul>
-                                <li><a>Electronics</a></li>
-                                <li><a>Real Estate Agency</a></li>
-                                <li><a>Beauty And Fashions</a></li>
-                                <li><a>Travelling Agency</a></li>
+                                <li><a href="/listElectronics">Electronics</a></li>
+                                <li><a href="/listReal Estate Agency">Real Estate Agency</a></li>
+                                <li><a href="/listBeauty And Fashions">Beauty And Fashions</a></li>
+                                <li><a href="/listTravelling Agency">Travelling Agency</a></li>
                              </ul>
                           </li>
                        </ul>
@@ -42,7 +42,7 @@
                     <% if(user){ %>
                       <div class="s-4 "><a href="/logout" class="btn ">logout</a></div>
                       <div class="s-4 "><a href="/client-ads" class="btn ">My Ads</a></div>
-                      <div class="s-4"><a class="btn " data-toggle="modal" data-target="#ads">Create Ad/Listing</a></div>
+                      <div class="s-4"><a class="btn " data-toggle="modal" data-target="#ads"><i class="fa fa-plus">Ad/Listing</i></a></div>
                     <% } else { %>
                       <div class="s-4 "><a href="/login" class="btn ">login</a></div>
                       <div class="s-4"><a href="/signup" class="btn ">Sign Up</a></div>

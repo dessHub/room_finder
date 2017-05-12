@@ -170,6 +170,7 @@ module.exports = function(app, passport) {
        src.pipe(dest);
        fs.unlink(tmp_path); //deleting the tmp_path
 
+         console.log(location )
            var list = new List();
              list.category = category;
              list.title = title;

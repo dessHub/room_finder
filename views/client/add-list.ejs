@@ -46,15 +46,7 @@
                                      </div>
                                      <div class="col-md-6 col-sm-12 col-xs-12">
                                        <div class="">
-                                        <select class="form-control" id="location" required="true" name="location" style="background-color : inherit">
-                                          <option value="">Select Location</option>
-                                          <option value="Tudor">Tudor</option>
-                                          <option value="Kaachonjo">Kaa Chonjo</option>
-                                          <option value="Makupa">Makupa</option>
-                                          <option value="Sabasaba">Saba saba</option>
-
-
-                                        </select>
+                                        <input id="geocomplete" name="location" type="text" placeholder="Type in an address" size="90" />
                                       </div>
                                      </div>
 
@@ -62,7 +54,7 @@
                                       <div class="row">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
                                       <div class="form-group">
-                                          <label>Adds Title:</label>
+                                          <label>Business Title:</label>
                                            <input class="form-control" type="text" name="title" required="true"/>
                                         </div>
                                         <div class="form-group">
@@ -90,6 +82,8 @@
                                   </form>
 
              </div>
+
+             <div class="map_canvas"></div>
 
              </div>
            </section>

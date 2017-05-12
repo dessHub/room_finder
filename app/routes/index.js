@@ -92,13 +92,39 @@ module.exports = function(app, passport) {
     });
 
     app.get('/list', function(req, res){
-      List.find({}, function(err, lists){
+    //eval(require('locus'));
+      if (req.query.location) {
+        console.log("query search exist")
+         const regex = new RegExp(escapeRegex(req.query.location), 'gi');
+         List.find({ location: regex }, function(err, foundads) {
+             if(err) {
+                 console.log(err);
+             } else {
+                res.render("client/listings.ejs", { rooms: foundads });
+             }
+         });
+       }else{
+      List.find({}, function(err, rooms){
+        if(err) throw err;
+
+        res.render('client/listings.ejs', {rooms:rooms});
+      })
+    }
+
+    });
+
+
+    app.get('/list:cat', function(req, res){
+
+      var cate = req.params.cat;
+      List.find({"category":cate}, function(err, lists){
         if(err) throw err;
 
         res.render('client/listings.ejs', {rooms:lists});
       })
 
-    })
+
+    });
 
     app.get('/tobe', function(req, res){
       Room.find({"status":"To Be Vacant"}, function(err, rooms){
@@ -120,7 +146,6 @@ module.exports = function(app, passport) {
          }
 
           console.log(cat);
-            console.log(user);
         Album.find({"room":req.params.id}, function(err, album){
           if(err) return err;
 
@@ -128,7 +153,7 @@ module.exports = function(app, passport) {
              if(err) return err;
 
                 console.log(user);
-              User.find({"user":user}, function(err, agent){
+              User.find({"_id":user}, function(err, agent){
                 if(err) return err;
 
                 console.log(agent);
