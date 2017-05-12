@@ -1,7 +1,7 @@
 
 module.exports=[
 	{
-    'environment': 'development',
+    'environment': 'production',
     'url'       : 'mongodb://desshub:kejahunt@ds163010.mlab.com:63010/kejahunt',
     'secret'    : 'nosecrets'
   },
