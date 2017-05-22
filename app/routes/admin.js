@@ -138,6 +138,7 @@ module.exports = function(app, passport) {
              room.info = info;
              room.user = user;
              room.date = Date();
+             console.log(room.user);
            room.save(function(err, room){
              if(err) return err;
 

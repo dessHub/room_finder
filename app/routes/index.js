@@ -19,10 +19,6 @@ module.exports = function(app, passport) {
      })
     });
 
-    app.get('/g', function(req, res){
-      res.render('client/geo.ejs');
-    })
-
     app.get('/ads', function(req, res){
     //eval(require('locus'));
       if (req.query.location) {
