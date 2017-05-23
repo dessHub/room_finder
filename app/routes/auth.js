@@ -1,5 +1,11 @@
+var base64url = require('base64url');
+var multer = require('multer');
+var fs = require('fs');
+var pictures = multer({});
 var User = require('../models/user');
 var passport = require('passport');
+
+var upload = multer({ dest: 'uploads/' });
 
 module.exports = function(app, passport) {
   // =====================================
@@ -40,17 +46,36 @@ module.exports = function(app, passport) {
   app.get('/signup', function(req, res) {
 
       // render the page and pass in any flash data if it exists
-      res.render('admin/signup.ejs', { message: req.flash('signupMessage') });
+      res.render('client/mybusiness.ejs', { message: req.flash('signupMessage') });
   });
 
   // process the signup form
-  app.post('/signup', function(req, res){
+  app.post('/signup', upload.single('image'), function(req, res){
       var name=req.body.name;
       var email=req.body.email;
       var phoneno=req.body.phoneno;
       var password=req.body.password;
       var password2=req.body.password2;
-      var role = "normal"
+      var role = "normal"  ;
+      var status = "Pending"  ;
+      var location = req.body.location;
+      var title = req.body.title;
+      var category = req.body.category;
+      var regNo=req.body.regNo;
+      var description = req.body.description;
+      var postalcode = req.body.postalcode;
+      var website = req.body.website;
+      var image = req.image;
+      var tmp_path = req.file.path;
+
+       /** The original name of the uploaded file
+           stored in the variable "originalname". **/
+       var target_path = 'uploads/' + req.file.originalname;
+       /** A better way to copy the uploaded file. **/
+       var src = fs.createReadStream(tmp_path);
+       var dest = fs.createWriteStream(target_path);
+       src.pipe(dest);
+       fs.unlink(tmp_path); //deleting the tmp_path
 
       //validation
       req.checkBody('password', 'Password should be 8 to 20 characters').len(8, 20);
@@ -82,7 +107,16 @@ module.exports = function(app, passport) {
                 email: email,
                 phoneno: phoneno,
                 password: password,
-                role: role
+                role: role,
+                category : category,
+                title : title,
+                location : location,
+                logo : target_path,
+                status : status,
+                website : website,
+                description : description,
+                regNo : regNo,
+                description : description
 
           });
           User.createUser(newUser,function(err, user){
@@ -113,7 +147,7 @@ module.exports = function(app, passport) {
         }
         else if(role == "normal"){
 
-           res.redirect('/');
+           res.redirect('/mylist');
 
         }
       });

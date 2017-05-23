@@ -12,6 +12,10 @@ body {
 
 }
 
+.box {
+  background-color: black;
+}
+
 .page-header {
   margin-left: 0px;
   margin-right: 0px;
@@ -31,6 +35,11 @@ nav {
 .content {
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.user_tabs li{
+  background-color:#152732;
+  font-size:80%;
 }
 
 .footer{
@@ -106,9 +115,21 @@ nav {
   height:auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #80b3ff;
+  background-color: #004d4d;
 }
 
+.welcome {
+  height:auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #004d4d;
+  text-align: center;
+
+}
+
+.welcome h1 {
+  font-size: 200%;
+}
 
 .dash-top {
   margin-top: 0px;

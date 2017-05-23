@@ -17,6 +17,30 @@ var UserSchema = mongoose.Schema({
   role :{
     type :  String
   },
+  status :{
+    type :  String
+  },
+  title :{
+    type : String
+  },
+  description : {
+    type :  String
+  },
+  regNo :{
+    type :  String
+  },
+  logo :{
+    type : String
+  },
+  location : {
+    type :  String
+  },
+  website :{
+    type :  String
+  },
+  postcode :{
+    type :  String
+  },
   password : {
     type : String
   }

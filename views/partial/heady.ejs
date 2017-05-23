@@ -1,31 +1,22 @@
  <!-- HEADER -->
 
    <div class="line container-fluid">
-      <div class="box">
+      <div class="box" style="background-color:#152732;">
          <div class="s-6 l-2">
             <a href="/"><img src="img/logo.png"></a>
          </div>
          <div class="s-12 l-6 right">
             <div class="margin" style="margin-top:10px">
-               <div class="s-12 l-6 " >
-                 <nav>
-                    <p class="nav-text">Main Categories</p>
-                    <div class="top-nav s-12 l-12 " >
-                       <ul>
+               <div class="s-12 l-12 " >
+                 <nav style="">
+                    <p class="nav-text">Main Menu</p>
+                    <div class="top-nav s-12 l-12 ">
+                       <ul style="float:right;" >
                           <li>
-                             <a href="/ads">Property Ads</a>
-                             <ul>
-                                <li><a href="/adsAppartments & Rooms for Rent">Appartments & Rooms for Rent</a></li>
-                                <li><a href="/adsAppartments & Rooms for Sale">Appartments & Rooms for Sale</a></li>
-                                <li><a href="/adsCottages">Cottages</a></li>
-                                <li><a href="/adsConference Halls">Conference Halls</a></li>
-                                <li><a href="/adsHotel Rooms">Hotel Rooms</a></li>
-                                <li><a href="/adsShops Office Space">Shops/Office Space</a></li>
-
-                             </ul>
+                             <a href="/">Home</a>
                           </li>
                           <li>
-                             <a href="/list">Business Listings</a>
+                             <a>Categories</a>
                              <ul>
                                 <li><a href="/listElectronics">Electronics</a></li>
                                 <li><a href="/listReal Estate Agency">Real Estate Agency</a></li>
@@ -33,22 +24,22 @@
                                 <li><a href="/listTravelling Agency">Travelling Agency</a></li>
                              </ul>
                           </li>
+                            <li><a href="/list">List Directory</a></li>
+                            <li><a href="/mylist">My Business List</a></li>
+
+                            <% if(user){ %>
+                              <li ><a href="/logout" >logout</a></li>
+                              <li ><a href="/client-ads" >My Ads</a></li>
+                              <li ><a  ><i class="fa fa-plus">Ad/Listing</i></a></li>
+                            <% } else { %>
+                              <li ><a href="/login" >login</a></li>
+                              <li ><a href="/signup" >Sign Up</a></li>
+                            <% } %>
+
+
                        </ul>
                     </div>
                  </nav>
-               </div>
-               <div class="s-12 l-6 right">
-                  <div class="right">
-                    <% if(user){ %>
-                      <div class="s-4 "><a href="/logout" class="btn ">logout</a></div>
-                      <div class="s-4 "><a href="/client-ads" class="btn ">My Ads</a></div>
-                      <div class="s-4"><a class="btn " data-toggle="modal" data-target="#ads"><i class="fa fa-plus">Ad/Listing</i></a></div>
-                    <% } else { %>
-                      <div class="s-4 "><a href="/login" class="btn ">login</a></div>
-                      <div class="s-4"><a href="/signup" class="btn ">Sign Up</a></div>
-                    <% } %>
-
-                  </div>
                </div>
             </div>
          </div>

@@ -66,7 +66,7 @@ module.exports = function(app, passport) {
       });
    })
 
-    app.get('/mylist', isLoggedIn, function(req, res){
+    app.get('/mylist', function(req, res){
 
 
         res.render('client/client_landing.ejs');
@@ -179,6 +179,5 @@ function isLoggedIn(req, res, next) {
         return next();
 
     // if they aren't redirect them to the home page
-    res.redirect('/signup');
-    req.session.returnTo;
+    res.redirect('/');
 }

@@ -26,8 +26,7 @@ var listSchema = mongoose.Schema({
           type : Date
         },
         user :{
-            type : Schema.Types.ObjectId, ref: "User",
-            unique: "true"
+            type : Schema.Types.ObjectId, ref: "User"
         }
 
 });

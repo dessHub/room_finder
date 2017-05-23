@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<% include ../partial/head.ejs %>
+<body class="">
+  <header>
+<% include ../partial/heady.ejs %>
+<% include ../partial/header.ejs %>
+</header>
+<!-- ASIDE NAV AND CONTENT -->
+<div class="line">
+   <div class="box">
+      <div class="margin2x">
+         <!-- CONTENT -->
+         <section class="s-12 m-8 l-9 center">
+
+            <div class="row" style="border-style:ridge; margin-bottom:20px;padding-bottom:5px; padding-top:5px;">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                  <ul class="nav nav-tabs user_tabs">
+                   <li style=""><a data-toggle="tab" href="#register">Create New Account</a></li>
+                    <li class="active" style=""><a data-toggle="tab" href="#login">Login</a></li>
+                    <li style=""><a data-toggle="tab" href="#request">Request New Password</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="register" class="tab-pane ">
+                    <div class="row" style="">
+                      <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10 col-xs-12">
+                      <h3>SETTING UP BUSINESS ACCOUNT</h3>
+                      <p>Some content.</p>
+                    </div>
+                  </div>
+                      <div class="row" style="">
+                        <div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10 col-xs-12">
+                          <!-- SIGNUP FORM -->
+                          <form action="/signup" method="post" enctype="multipart/form-data" >
+                              <div class="form-group">
+                                  <label>Name</label>
+                                  <input type="text" class="form-control" name="name" required="true" placeholder="Full Name">
+                              </div>
+                              <div class="form-group">
+                                  <label>Mobile No</label>
+                                  <input type="text" class="form-control" name="phoneno" required="true">
+                              </div>
+                              <div class="form-group">
+                                  <label>Email</label>
+                                  <input type="email" class="form-control" name="email" required="false" placeholder="Optional">
+                              </div>
+                              <div class="form-group">
+                                  <label>Business Name</label>
+                                  <input type="text" class="form-control" name="title" required="true" placeholder="Full Name">
+                              </div>
+                              <div class="form-group">
+                                  <label>Business Category</label>
+                                 <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
+                                   <option  value="">Select Business Category</option>
+                                   <option  value="Electronics">Electronics</option>
+                                   <option  value="Real Estate Agency">Real Estate Agency</option>
+                                   <option  value="Beauty And Fashions">Beauty And Fashions</option>
+                                   <option  value="Travelling Agency">Travelling Agency</option>
+                                 </select>
+                               </div>
+                              <div class="form-group">
+                                  <label>Business Registration No</label>
+                                  <input type="text" class="form-control" name="regNo" required="true">
+                              </div>
+                              <div class="form-group">
+                                  <label>Location</label>
+                                   <input id="geocomplete" name="location" type="text" class="form-control" placeholder="Type in an address" />
+                              </div>
+                              <div class="form-group">
+                                  <label>Business Website</label>
+                                  <input type="url" class="form-control" name="website" required="true">
+                              </div>
+                              <div class="form-group">
+                                  <label>Business Postcode</label>
+                                  <input type="text" class="form-control" name="postcode" required="true">
+                              </div>
+                              <div class="form-group">
+                                  <label>Business Logo:</label>
+                                   <input type="file" name="image" required="true"/>
+                              </div>
+                                <div class="form-group">
+                                    <label>Business Description:</label>
+                                   <textarea class="form-control" rows="4" name="description" required="true"></textarea>
+                                </div>
+
+
+                              <div class="form-group">
+                                  <label>Password</label>
+                                  <input type="password" class="form-control" name="password" required="true">
+                              </div>
+                              <div class="form-group">
+                                  <label>Confirm Password</label>
+                                  <input type="password" class="form-control" name="password2" required="true">
+                              </div>
+
+
+                              <button type="submit" class="btn btn-warning btn-lg">Create New Account</button>
+                          </form>
+
+                          <div class="row">
+                          <div class="col-lg-12 col-md-12 col-xs-12">
+                           <div class="map_canvas"></div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="login" class="tab-pane in active">
+                      <h3>User Account.</h3>
+                      <p>If you don't Have a List Account Click on <em style="color:#999900">Create New Account</em> tab above.</p>
+
+                      <div class="row">
+                        <div class="col-md-8 col-lg-8 col-xs-12">
+                        <!-- LOGIN FORM -->
+                        <form action="/login" method="post">
+                            <div class="form-group">
+                                <label>Phone No</label>
+                                <input type="text" class="form-control" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+
+                            <button type="submit" class="btn btn-warning btn-lg">Login</button>
+                        </form>
+                      </div>
+                    </div>
+                    </div>
+                    <div id="request" class="tab-pane ">
+                      <h3>Menu 2</h3>
+                      <p>Some content in menu 2.</p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+         </section>
+
+      </div>
+   </div>
+</div>
+<!-- FOOTER -->
+<% include ../partial/footer.ejs %>
+
+<% include ../partial/footer-script.ejs %>
+</body>
+</html>
