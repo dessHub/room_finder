@@ -21,7 +21,7 @@
         <div class="subtitle">Business Details :</div>
         <div>Business Title : <em><%= user.title %> </em></div>
         <div>Registration No : <em><%= user.regNo %> </div>
-        <div><em><%= user.description %> </div>
+        <div class="text-center" style="background-color :#f5f5ef; padding-top:12px" ><h4><strong></strong> <%= user.description %> </h4></div>
       </div>
     <div class="col-md-3 col-lg-3 col-xs-3">
     <div class="subtitle">Business Address :</div>
@@ -50,9 +50,9 @@
 <div class="col-md-2 col-lg-2 col-xs-12">
 </div>
 <div class="col-md-8 col-lg-8 col-xs-12">
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"> Account</i></button>
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"> Products/Images</i></button>
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash-o"> Account</i></button>
+  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#updateModal"><i class="fa fa-edit"> Account</i></button>
+  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#prodModal"><i class="fa fa-plus"> Products/Images</i></button>
+  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#delModal"><i class="fa fa-trash-o"> Account</i></button>
 
 </div>
 <div class="col-md-2 col-lg-2 col-xs-12">
@@ -63,10 +63,225 @@
 <div class="col-lg-12 col-md-12 col-xs-12">
 <div class="subtitle">Business Images/Products</div>
 <div class="row">
+  <% for(i=0; i<products.length; i++) { %>
 <div class="col-lg-3 col-md-3 col-xs-6">
-<img src="" alt="products" title="Product 1" class="thumbnail img-responsive" height="100px" width="100%"></div></div>
+<img src="<%= products[i].image %>" alt="products" title="Product 1" class="thumbnail img-responsive" height="80px" width="100%">
+<div class="center"><%= products[i].note %></div>
+</div>
+<% } %>
+</div>
 </div>
          </section>
+
+         <!-- ========Modals ========== -->
+
+         <!-- ========Update Modal ========== -->
+         <div id="updateModal" class="modal fade" role="dialog">
+           <div class="modal-dialog">
+
+             <!-- Modal content-->
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title">Update Business details</h4>
+               </div>
+
+               <div class="modal-body container-fluid">
+                 <form id="contact-form" method="POST" action="/update<%= user.id %>" >
+
+                   <div class="row">
+                     <div class="col-md-4 col-sm-12 col-xs-12">
+                       <div class="form-group">
+                           <label>Name:</label>
+                            <input class="form-control" type="text" name="name" value="<%= user.name %>" required="true"/>
+                         </div>
+                     </div>
+                       <div class="col-md-4 col-sm-12 col-xs-12">
+                         <div class="form-group">
+                             <label>Mobile No:</label>
+                              <input class="form-control" type="text" name="phoneno" value="<%= user.phoneno %>" required="true"/>
+                           </div>
+                       </div>
+                         <div class="col-md-4 col-sm-12 col-xs-12">
+                           <div class="form-group">
+                               <label>Email:</label>
+                                <input class="form-control" type="text" name="email" value="<%= user.email %>" required="true"/>
+                             </div>
+                         </div>
+                   </div>
+                   <hr>
+                   <div class="row">
+                 <div class="col-md-6 col-sm-12 col-xs-12">
+                   <div class="form-group">
+                       <label>Category:</label>
+                    <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
+                      <option  value="<%= user.category %>"><%= user.category %></option>
+                         <option  value="Business services">Business services</option>
+                         <option  value="Computers & Internet">Computers & Internet</option>
+                         <option  value="Entertainment & Media">Entertainment & Media</option>
+                         <option  value="Events & Conferences">Events & Conferences</option>
+                         <option  value="Finances & Insurance">Finances & Insurance</option>
+                         <option  value="Food & Drink">Food & Drink</option>
+                         <option  value="Health & Beauty">Health & Beauty</option>
+                         <option  value="Legal">Legal</a></li>
+                         <option  value="Manufacturing & Industry">Manufacturing & Industry</option>
+                         <option  value="Shopping">Shopping</a></li>
+                         <option  value="Tourism & Accommodation">Tourism & Accommodation</option>
+                         <option  value="Tradesmen & Construction">Tradesmen & Construction</option>
+                         <option  value="Transport & Motoring">Transport & Motoring</option>
+                         <option  value="Public & Social services">Public & Social services</option>
+                         <option  value="Property">Property</option>
+                    </select>
+                  </div>
+                 </div>
+                 <div class="col-md-6 col-sm-12 col-xs-12">
+                 <div class="form-group">
+                     <label>Location</label>
+                      <input id="geocomplete" name="location" type="text" class="form-control" placeholder="Type in an address" value="<%= user.location %>"/>
+                 </div>
+                 </div>
+
+                </div><br>
+                  <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                      <label>Ads Title:</label>
+                       <input class="form-control" type="text" name="title" value="<%= user.title %>" required="true"/>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                      <label>Business Registration No:</label>
+                       <input id="" name="regNo" type="text" class="form-control" placeholder="" value="<%= user.regNo %>" />
+                  </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                      <label>Website:</label>
+                       <input id="" name="website" type="url" class="form-control" placeholder="" value="<%= user.website %>" />
+                  </div>
+                  </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label>Postal Code:</label>
+                         <input id="" name="postcode" type="text" class="form-control" placeholder="" value="<%= user.postcode %>" />
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label>Business Description:</label>
+                         <textarea class="form-control" rows="3" name="description" required="true"><%= user.description %></textarea>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+                    <button type="submit" class="btn btn-style blue">Update</button>
+                    <button type="cancel" class="btn btn-style blue">Cancel</button>
+                  </div>
+                </div>
+
+                  </form>
+               </div>
+
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+
+           </div>
+         </div>
+
+         <!-- ========Modals ========== -->
+         <div id="prodModal" class="modal fade" role="dialog">
+           <div class="modal-dialog">
+
+             <!-- Modal content-->
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title">Add Product Image:</h4>
+               </div>
+
+               <div class="modal-body container-fluid">
+                 <form id="contact-form" method="POST" action="/addproduct" enctype="multipart/form-data" >
+
+                  <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                      <label>Image:</label>
+                       <input type="file" name="image" required="true"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Note /Price:</label>
+                         <input id="" name="note" type="text" class="form-control" placeholder=""  />
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+                    <button type="submit" class="btn btn-style blue">Update</button>
+                    <button type="cancel" class="btn btn-style blue">Cancel</button>
+                  </div>
+                </div>
+
+                  </form>
+               </div>
+
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+
+           </div>
+         </div>
+
+         <!-- ========Modals ========== -->
+         <div id="delModal" class="modal fade" role="dialog">
+           <div class="modal-dialog">
+
+             <!-- Modal content-->
+             <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title" style="color : red">This will Delete Your Account.</h4>
+               </div>
+
+               <div class="modal-body container-fluid">
+
+
+                  <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+
+                   <h3>Are you Sure You Want to Delete Your Account?</h3>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-offset-3 col-md-4 col-sm-12 col-xs-12">
+                    <button class="btn btn-style blue"><a href="/delete/account<%= user.id %>">Yes</a></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  </div>
+                </div>
+
+               </div>
+
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+
+           </div>
+         </div>
 
       </div>
    </div>

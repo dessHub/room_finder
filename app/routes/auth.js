@@ -3,30 +3,31 @@ var multer = require('multer');
 var fs = require('fs');
 var pictures = multer({});
 var User = require('../models/user');
+var Product = require('../models/product');
 var passport = require('passport');
 
 var upload = multer({ dest: 'uploads/' });
 
-module.exports = function(app, passport) {
+module.exports = {
   // =====================================
   // LOGIN ===============================
   // =====================================
   // show the login form
-  app.get('/login', function(req, res) {
+  log: (req, res)=> {
 
       // render the page and pass in any flash data if it exists
       res.render('admin/login.ejs');
-  });
+  },
 
   // process the login form
-  app.post('/login', function(req,res, next){
+  login: (req,res, next)=>{
     passport.authenticate('local', function(err,user){
            if(err) return err;
            var message = {};
            if(!user){
              req.flash("error_msg","Wrong Mobile No or Password");
              console.log("Wrong Mobile No or Password")
-             res.redirect('/login');
+             res.redirect('/myaccount');
            }
            req.login(user, function(err){
              if(err) return err;
@@ -37,20 +38,31 @@ module.exports = function(app, passport) {
            });
 
       })(req,res,next);
-    });
+    },
 
   // =====================================
   // SIGNUP ==============================
   // =====================================
   // show the signup form
-  app.get('/signup', function(req, res) {
+  myaccount: (req, res)=> {
 
       // render the page and pass in any flash data if it exists
       res.render('client/mybusiness.ejs', { message: req.flash('signupMessage') });
-  });
+  },
+
+  // show the signup form
+  mylist: (req, res)=> {
+
+      Product.find({user:req.user.id}, (err, products)=>{
+        if(err) return err;
+
+        // render the page and pass in any flash data if it exists
+        res.render('client/client_landing.ejs', {products:products});
+      })
+  },
 
   // process the signup form
-  app.post('/signup', upload.single('image'), function(req, res){
+  create: (req, res)=>{
       var name=req.body.name;
       var email=req.body.email;
       var phoneno=req.body.phoneno;
@@ -63,7 +75,7 @@ module.exports = function(app, passport) {
       var category = req.body.category;
       var regNo=req.body.regNo;
       var description = req.body.description;
-      var postalcode = req.body.postalcode;
+      var postcode = req.body.postcode;
       var website = req.body.website;
       var image = req.image;
       var tmp_path = req.file.path;
@@ -114,6 +126,7 @@ module.exports = function(app, passport) {
                 logo : target_path,
                 status : status,
                 website : website,
+                postcode : postcode,
                 description : description,
                 regNo : regNo,
                 description : description
@@ -136,9 +149,9 @@ module.exports = function(app, passport) {
         }
       });
       }
-    });
+    },
 
-    app.get('/use', function(req,res){
+    use: (req,res)=>{
         var user = req.user;
         var role = user.role;
         console.log(role)
@@ -150,10 +163,10 @@ module.exports = function(app, passport) {
            res.redirect('/mylist');
 
         }
-      });
+      },
 
       //Admin can change roles for users via this route
-app.get('/role/:phoneno/:role', function (req, res){
+roles: (req, res)=>{
   var role = req.params.role;
     var username = req.params.phoneno;
     console.log(username);
@@ -172,17 +185,15 @@ app.get('/role/:phoneno/:role', function (req, res){
       }
     });
 
-})
-
-
+},
 
   // =====================================
   // LOGOUT ==============================
   // =====================================
-  app.get('/logout', function(req, res) {
+  logout: (req, res)=> {
       req.logout();
       res.redirect('/');
-  });
+  }
 
 };
 

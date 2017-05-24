@@ -23,6 +23,9 @@ var UserSchema = mongoose.Schema({
   title :{
     type : String
   },
+  category :{
+    type : String
+  },
   description : {
     type :  String
   },

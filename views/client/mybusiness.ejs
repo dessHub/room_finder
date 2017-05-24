@@ -15,6 +15,13 @@
 
             <div class="row" style="border-style:ridge; margin-bottom:20px;padding-bottom:5px; padding-top:5px;">
                 <div class="col-lg-12 col-md-12 col-xs-12">
+                  <!-- show any messages that come back with authentication -->
+                <% if (error_msg) { %>
+                      <div data-alert class="alert-box warning radius" style="color : red">
+                    <%= error_msg %>
+                      </div>
+                <% } %>
+                <br>
                   <ul class="nav nav-tabs user_tabs">
                    <li style=""><a data-toggle="tab" href="#register">Create New Account</a></li>
                     <li class="active" style=""><a data-toggle="tab" href="#login">Login</a></li>
@@ -53,10 +60,21 @@
                                   <label>Business Category</label>
                                  <select class="form-control" id="cat" name="category" required="true" style="background-color : inherit">
                                    <option  value="">Select Business Category</option>
-                                   <option  value="Electronics">Electronics</option>
-                                   <option  value="Real Estate Agency">Real Estate Agency</option>
-                                   <option  value="Beauty And Fashions">Beauty And Fashions</option>
-                                   <option  value="Travelling Agency">Travelling Agency</option>
+                                      <option  value="Business services">Business services</option>
+                                      <option  value="Computers & Internet">Computers & Internet</option>
+                                      <option  value="Entertainment & Media">Entertainment & Media</option>
+                                      <option  value="Events & Conferences">Events & Conferences</option>
+                                      <option  value="Finances & Insurance">Finances & Insurance</option>
+                                      <option  value="Food & Drink">Food & Drink</option>
+                                      <option  value="Health & Beauty">Health & Beauty</option>
+                                      <option  value="Legal">Legal</a></li>
+                                      <option  value="Manufacturing & Industry">Manufacturing & Industry</option>
+                                      <option  value="Shopping">Shopping</a></li>
+                                      <option  value="Tourism & Accommodation">Tourism & Accommodation</option>
+                                      <option  value="Tradesmen & Construction">Tradesmen & Construction</option>
+                                      <option  value="Transport & Motoring">Transport & Motoring</option>
+                                      <option  value="Public & Social services">Public & Social services</option>
+                                      <option  value="Property">Property</option>
                                  </select>
                                </div>
                               <div class="form-group">

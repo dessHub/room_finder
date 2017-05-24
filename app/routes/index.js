@@ -1,175 +1,40 @@
-var Room = require('../models/rooms');
-var Album = require('../models/album');
-var List = require('../models/list');
-var User = require('../models/user');
+const base64url = require('base64url');
+const multer = require('multer');
+const fs = require('fs');
+const pictures = multer({});
+const express        = require('express');
+const router         = express.Router();
+const homeRoutes     = require('./home');
+const authRoutes     = require('./auth');
 
-module.exports = function(app, passport) {
+var upload = multer({ dest: 'uploads/' });
 
-    // =====================================
-    app.get('/', function(req, res) {
+module.exports = (app, passport)=> {
 
-      Room.find({}, function(err, rooms){
-        if(err) throw err;
+/*=====================================================
+     Home Routes
+  =====================================================*/
+app.get('/', homeRoutes.index);
+app.get('/accounts', homeRoutes.accounts);
+app.get('/list:cat', homeRoutes.categories);
+app.get('/clist:id', homeRoutes.account);
+app.post('/addproduct', upload.single('image'), homeRoutes.addproduct);
+app.post('/update:id', homeRoutes.updateAccount);
+app.get('/delete/account:id', isLoggedIn, homeRoutes.deleteAccount);
 
-        List.find({}, function(err, list){
-          if(err) throw err;
+/*=====================================================
+     Auth Routes
+  =====================================================*/
+ app.get('/log', authRoutes.log);
+ app.post('/signup', upload.single('image'), authRoutes.create);
+ app.post('/login', authRoutes.login);
+ app.get('/mylist', isLoggedIn, authRoutes.mylist);
+ app.get('/myaccount', authRoutes.myaccount);
+ app.get('/use', authRoutes.use);
+ app.get('/role/:phoneno/:role', authRoutes.roles);
+ app.get('/logout', authRoutes.logout);
 
-        res.render('client/home.ejs', {rooms:rooms, list:list});
-      })
-     })
-    });
-
-    app.get('/ads', function(req, res){
-    //eval(require('locus'));
-      if (req.query.location) {
-        console.log("query search exist")
-         const regex = new RegExp(escapeRegex(req.query.location), 'gi');
-         Room.find({ location: regex }, function(err, foundads) {
-             if(err) {
-                 console.log(err);
-             } else {
-                res.render("client/vacant.ejs", { rooms: foundads });
-             }
-         });
-       }else{
-      Room.find({}, function(err, rooms){
-        if(err) throw err;
-
-        res.render('client/vacant.ejs', {rooms:rooms});
-      })
-    }
-
-    });
-
-    app.get('/ads:cat', function(req, res){
-
-      var cate = req.params.cat;
-      Room.find({"category":cate}, function(err, rooms){
-        if(err) throw err;
-
-        res.render('client/vacant.ejs', {rooms:rooms});
-      })
-
-
-    });
-
-   app.get('/fuzzy', function(req, res){
-     console.log(req.query.search)
-     console.log("query search exist")
-      const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-      Room.find({ location: regex }, function(err, foundads) {
-          if(err) {
-              console.log(err);
-          } else {
-             res.render("client/vacant.ejs", { rooms: foundads });
-          }
-      });
-   })
-
-    app.get('/mylist', isLoggedIn, function(req, res){
-
-
-        res.render('client/client_landing.ejs');
-
-
-    });
-
-    app.get('/add-ads', isLoggedIn,function(req, res){
-
-        res.render('client/add-ads.ejs');
-
-    });
-
-    app.get('/add-list', isLoggedIn,function(req, res){
-
-        res.render('client/add-list.ejs');
-
-    });
-
-    app.get('/list', function(req, res){
-    //eval(require('locus'));
-      if (req.query.location) {
-        console.log("query search exist")
-         const regex = new RegExp(escapeRegex(req.query.location), 'gi');
-         List.find({ location: regex }, function(err, foundads) {
-             if(err) {
-                 console.log(err);
-             } else {
-                res.render("client/listings.ejs", { rooms: foundads });
-             }
-         });
-       }else{
-      List.find({}, function(err, rooms){
-        if(err) throw err;
-
-        res.render('client/listings.ejs', {rooms:rooms});
-      })
-    }
-
-    });
-
-
-    app.get('/list:cat', function(req, res){
-
-      var cate = req.params.cat;
-      List.find({"category":cate}, function(err, lists){
-        if(err) throw err;
-
-        res.render('client/listings.ejs', {rooms:lists});
-      })
-
-
-    });
-
-    app.get('/tobe', function(req, res){
-      Room.find({"status":"To Be Vacant"}, function(err, rooms){
-        if(err) throw err;
-
-        res.render('client/vacant.ejs', {rooms:rooms});
-      })
-    })
-
-    app.get('/clroom:id', function(req, res){
-      Room.find({"_id":req.params.id}, function(err, room){
-        if(err) return err;
-
-         var cat = "";
-         var user = "";
-         for(i=0; i<room.length; i++){
-           cat = room[i].category;
-           user = room[i].user;
-         }
-
-          console.log(cat);
-        Album.find({"room":req.params.id}, function(err, album){
-          if(err) return err;
-
-           Room.find({"category":cat}, function(err, cat){
-             if(err) return err;
-
-                console.log(user);
-              User.find({"_id":user}, function(err, agent){
-                if(err) return err;
-
-                console.log(agent);
-                res.render("client/room.ejs", {room:room, album:album, cat:cat, agent:agent});
-              })
-
-           })
-
-        })
-
-      })
-    });
-    // =====================================
-
-
-
-};
-
-function escapeRegex(text){
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
+}
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
@@ -179,6 +44,6 @@ function isLoggedIn(req, res, next) {
         return next();
 
     // if they aren't redirect them to the home page
-    res.redirect('/signup');
+    res.redirect('/myaccount');
     req.session.returnTo;
 }

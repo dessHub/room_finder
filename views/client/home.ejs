@@ -4,40 +4,40 @@
 <body class="">
   <header>
 <% include ../partial/heady.ejs %>
-<% include ../partial/search.ejs %>
+<% include ../partial/search-list.ejs %>
 </header>
 <!-- ASIDE NAV AND CONTENT -->
 <div class="line">
    <div class="box">
       <div class="margin2x">
          <!-- CONTENT -->
-         <section class="s-12 m-8 l-9 center">
+         <section class="s-12 m-10 l-10 right">
 
             <h1>Top Listings</h1>
             <div class="margin">
-              <% if(list.length>3) { %>
+              <% if(accounts.length>3) { %>
                 <% for(i=0; i<3; i++) { %>
                  <div class="s-12 m-6 l-4">
-                   <a href="/clroom<%= list[i].id %>"><h4 class="" style="color : blue"><%= list[i].title %></h4></a>
-                    <a href="/clroom<%= list[i].id %>"><img src="/<%= list[i].image %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
-                    <h4 class="margin-bottom"><strong>Location</strong> | <%= list[i].location %></h4>
+                   <a href="/clist<%= accounts[i].id %>"><h4 class="" style="color : blue"><%= accounts[i].title %></h4></a>
+                    <a href="/clist<%= accounts[i].id %>"><img src="<%= accounts[i].logo %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
+                    <h4 class="margin-bottom"><strong>Location</strong> | <%= accounts[i].location %></h4>
                     <div class="customform s-12 margin-bottom2x center">
-                       <h4 style="text-align : center; color : blue;"><strong></strong> | <%= list[i].info %></h4>
+                       <h4 style="text-align : center; color : blue;"><strong></strong> | <%= accounts[i].description %></h4>
                     </div>
                     <div class="row">
-                    <div class="col-lg-6 col-xs-12"><i class="fa fa-phone"><i></div>
+                    <div class="col-lg-6 col-xs-12"><i class="fa fa-phone"><i><%= accounts[i].phoneno %></div>
                   <div class="col-lg-6 col-xs-12"><a href=""><i class="fa fa-globe"></i>website</a></div>
                 </div>
                  </div>
                   <% } %>
                    <% }else{ %>
-              <% for(i=0; i<list.length; i++) { %>
+              <% for(i=0; i<accounts.length; i++) { %>
                <div class="s-12 m-6 l-4">
-                 <a href="/clist<%= list[i].id %>"><h4 class="" style="color : blue"><%= list[i].title %></h4></a>
-                  <a href="/clist<%= list[i].id %>"><img src="/<%= list[i].image %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
-                  <h4 class="margin-bottom"><strong>Location</strong> | <%= list[i].location %></h4>
+                 <a href="/clist<%= accounts[i].id %>"><h4 class="" style="color : blue"><%= accounts[i].title %></h4></a>
+                  <a href="/clist<%= accounts[i].id %>"><img src="<%= accounts[i].logo %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
+                  <h4 class="margin-bottom"><strong>Location</strong> | <%= accounts[i].location %></h4>
                   <div class="customform s-12 margin-bottom2x center">
-                     <h4 style="text-align : center; color : blue;"><strong></strong> | <%= list[i].info %></h4>
+                     <h4 style="text-align : center; color : blue;"><strong></strong> | <%= accounts[i].description %></h4>
                   </div>
                   <div class="l-6 s-12"><i class="fa fa-phone"></i></div>
                 <div class="l-6 s-12"><a href=""><i class="fa fa-globe"></i>website</a></div>
@@ -47,6 +47,8 @@
                 <% } %>
             </div>
          </section>
+         <!-- ASIDE NAV -->
+             <% include ../partial/aside.ejs %>
 
       </div>
    </div>

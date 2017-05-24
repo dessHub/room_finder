@@ -11,19 +11,19 @@
      <div class="box">
         <div class="margin2x">
            <!-- CONTENT -->
-           <section class="s-12 m-8 l-9 right">
+           <section class="s-12 m-10 l-10 right">
               <div class="margin">
-                <% if(rooms.length > 0) { %>
-                <% for(i=0; i<rooms.length; i++) { %>
+                <% if(accounts.length > 0) { %>
+                <% for(i=0; i<accounts.length; i++) { %>
                  <div class="s-12 m-6 l-6">
-                   <a href="/clist<%= rooms[i].id %>"><h3 class="" style="color : blue"><%= rooms[i].title %></h3></a>
+                   <a href="/clist<%= accounts[i].id %>"><h3 class="" style="color : blue"><%= accounts[i].title %></h3></a>
                    <div class="s-12 m-4 l-4">
 
-                    <a href="/clist<%= rooms[i].id %>"><img src="/<%= rooms[i].image %>" class="img-responsive thumbnail" style="height:117px; width:100px;"></a>
+                    <a href="/clist<%= accounts[i].id %>"><img src="/<%= accounts[i].logo %>" class="img-responsive thumbnail" style="height:117px; width:100px;"></a>
                     </div>
                     <div class="s-12 m-8 l-8" style="padding-left : 4px;">
-                    <h4 class="margin-bottom"><strong>Location</strong> | <%= rooms[i].location %></h4>
-                    <h4 class="margin-bottom" style=" color : #4d4d00;"><strong> <%= rooms[i].info %></strong></h4>
+                    <h4 class="margin-bottom"><strong>Location</strong> | <%= accounts[i].location %></h4>
+                    <h4 class="margin-bottom" style=" color : #4d4d00;"><strong> <%= accounts[i].description %></strong></h4>
                  </div>
                  </div>
                   <% } %>
