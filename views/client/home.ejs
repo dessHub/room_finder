@@ -12,40 +12,74 @@
       <div class="margin2x">
          <!-- CONTENT -->
          <section class="s-12 m-10 l-10 right">
+          <div class="s-12 m-9 l-9 ">
+           <div class="s-12 m-6 l-6 homewelcome">
+             <h3>Welcome To List Business.</h3>
+             <h5>Starting A Business? Growing A Business? List Business Is Here To Help You.</h5>
 
-            <h1>Top Listings</h1>
-            <div class="margin">
-              <% if(accounts.length>3) { %>
-                <% for(i=0; i<3; i++) { %>
-                 <div class="s-12 m-6 l-4">
-                   <a href="/clist<%= accounts[i].id %>"><h4 class="" style="color : blue"><%= accounts[i].title %></h4></a>
-                    <a href="/clist<%= accounts[i].id %>"><img src="<%= accounts[i].logo %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
-                    <h4 class="margin-bottom"><strong>Location</strong> | <%= accounts[i].location %></h4>
-                    <div class="customform s-12 margin-bottom2x center">
-                       <h4 style="text-align : center; color : blue;"><strong></strong> | <%= accounts[i].description %></h4>
-                    </div>
-                    <div class="row">
-                    <div class="col-lg-6 col-xs-12"><i class="fa fa-phone"><i><%= accounts[i].phoneno %></div>
-                  <div class="col-lg-6 col-xs-12"><a href=""><i class="fa fa-globe"></i>website</a></div>
-                </div>
-                 </div>
-                  <% } %>
-                   <% }else{ %>
+            </div>
+             <div class="s-12 m-6 l-6 homewelcome" id="right">
+               <h3>Welcome To List Business.</h3>
+               <h5>Starting A Business? Growing A Business? List Business Is Here To Help You.</h5>
+
+              </div>
+
+            <h1>Top Business Listing</h1>
+            <div class="margin ">
+
               <% for(i=0; i<accounts.length; i++) { %>
-               <div class="s-12 m-6 l-4">
-                 <a href="/clist<%= accounts[i].id %>"><h4 class="" style="color : blue"><%= accounts[i].title %></h4></a>
-                  <a href="/clist<%= accounts[i].id %>"><img src="<%= accounts[i].logo %>" class="thumbnail img-responsive" style="height:187px;width:263px"></a>
-                  <h4 class="margin-bottom"><strong>Location</strong> | <%= accounts[i].location %></h4>
-                  <div class="customform s-12 margin-bottom2x center">
-                     <h4 style="text-align : center; color : blue;"><strong></strong> | <%= accounts[i].description %></h4>
-                  </div>
-                  <div class="l-6 s-12"><i class="fa fa-phone"></i></div>
-                <div class="l-6 s-12"><a href=""><i class="fa fa-globe"></i>website</a></div>
+               <div class="s-12 m-6 l-6">
+                 <a href="/clist<%= accounts[i].id %>"><h3 class="" style="color : blue"><%= accounts[i].title %></h3></a>
+                 <div class="s-12 m-4 l-4">
 
+                  <a href="/clist<%= accounts[i].id %>"><img src="/<%= accounts[i].logo %>" class="img-responsive thumbnail" style="height:117px; width:100px;"></a>
+                  </div>
+                  <div class="s-12 m-8 l-8" style="padding-left : 4px;">
+                  <h4 class="margin-bottom"><%= accounts[i].location %></h4>
+                  <h4 class="margin-bottom" style=" color : #4d4d00;"><strong> <%= accounts[i].description %></strong></h4>
+               </div>
+               <div class="s-12 m-8 l-8">
+                 <i class="fa fa-phone"><%= accounts[i].phoneno %> |</i>
+                 <a href="<%= accounts[i].website %> " target="_blank"><i class="fa fa-globe"></i>Visit</a>
+               </div>
                </div>
                 <% } %>
-                <% } %>
+
             </div>
+          </div>
+          <div class="s-12 m-3 l-3 packages">
+            <div class="subtitle" >List Packages.</div>
+            <div class="s-12 l-12 m-12 plans platnum">
+            <div class="subtitle" style="text-align:center">Platnum Plan</div>
+            <ul>
+            <li>Upto 30 Products </li>
+            <li>Always Among The Top On the search list.</li>
+            <li>Monthly Subscribtion. </li>
+            </ul>
+            <h4 style="text-align:center">For Only $.50</h4>
+            <button class="btn-default center" >Subscribe</button>
+          </div>
+          <div class="s-12 l-12 m-12 plans gold">
+          <div class="subtitle" style="text-align:center">Gold Plan</div>
+          <ul>
+          <li>Upto 15 Products </li>
+          <li>Always Among The Top On the search list.</li>
+          <li>Monthly Subscribtion. </li>
+          </ul>
+          <h4 style="text-align:center">For Only $.35</h4>
+          <button class="btn-default center" >Subscribe</button>
+        </div>
+        <div class="s-12 l-12 m-12 plans basic">
+        <div class="subtitle" style="text-align:center">Basic Plan</div>
+        <ul>
+        <li>Upto 6 Products </li>
+        <li>Always Among The Top On the search list.</li>
+        <li>Monthly Subscribtion. </li>
+        </ul>
+        <h4 style="text-align:center">For Only $.20</h4>
+        <button class="btn-default center" >Subscribe</button>
+      </div>
+          </div>
          </section>
          <!-- ASIDE NAV -->
              <% include ../partial/aside.ejs %>

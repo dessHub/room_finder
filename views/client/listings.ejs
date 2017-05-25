@@ -22,8 +22,12 @@
                     <a href="/clist<%= accounts[i].id %>"><img src="/<%= accounts[i].logo %>" class="img-responsive thumbnail" style="height:117px; width:100px;"></a>
                     </div>
                     <div class="s-12 m-8 l-8" style="padding-left : 4px;">
-                    <h4 class="margin-bottom"><strong>Location</strong> | <%= accounts[i].location %></h4>
+                    <h4 class="margin-bottom"><%= accounts[i].location %></h4>
                     <h4 class="margin-bottom" style=" color : #4d4d00;"><strong> <%= accounts[i].description %></strong></h4>
+                 </div>
+                 <div class="s-12 m-8 l-8">
+                   <i class="fa fa-phone"><%= accounts[i].phoneno %> |</i>
+                   <a href="<%= accounts[i].website %> " target="_blank"><i class="fa fa-globe"></i>Visit</a>
                  </div>
                  </div>
                   <% } %>

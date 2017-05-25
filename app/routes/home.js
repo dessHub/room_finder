@@ -20,8 +20,10 @@ module.exports = {
     accounts: (req, res) =>{
     //eval(require('locus'));
         if (req.query.location) {
-          console.log("query search exist")
+          console.log(req.query.category);
            const regex = new RegExp(escapeRegex(req.query.location), 'gi');
+           const category =new RegExp(escapeRegex(req.query.category), 'gi');
+           if(category == "All Categories"){
            User.find({ location: regex }, function(err, foundads) {
                if(err) {
                    console.log(err);
@@ -29,6 +31,16 @@ module.exports = {
                   res.render("client/listings.ejs", { accounts: foundads });
                }
            });
+         } else {
+
+           User.find({ category : category, location: regex }, function(err, foundads) {
+               if(err) {
+                   console.log(err);
+               } else {
+                  res.render("client/listings.ejs", { accounts: foundads });
+               }
+           });
+         }
          }else{
         User.find({}, function(err, accounts){
           if(err) throw err;

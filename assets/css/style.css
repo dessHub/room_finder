@@ -16,6 +16,58 @@ body {
   background-color: black;
 }
 
+.homewelcome {
+  background-color: skyblue;
+  height : 100px;
+  padding: 10px;
+  font-style: oblique;
+  color:red;
+}
+
+#right {
+  background-color: gold;
+}
+
+.toplist img {
+  height: 100px;
+  width: auto;
+}
+
+.homewelcome h5 {
+  font-size: 60%;
+  font-style: italic;
+  color: darkgreen;
+}
+
+.packages {
+  padding: 5px;
+  border-style: outset;
+  background-color: #152732;
+}
+
+.plans {
+  border-style: inset;
+  margin :3px;
+  align-items: center;
+}
+
+.plans h3 button{
+  margin-left: 10px;
+
+}
+
+.platnum {
+  background-color: gray;
+}
+
+.gold {
+  background-color: silver;
+}
+
+.basic {
+  background-color: white;
+}
+
 .page-header {
   margin-left: 0px;
   margin-right: 0px;

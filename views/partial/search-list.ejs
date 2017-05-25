@@ -1,13 +1,35 @@
 <!-- /contact info -->
 <div class="line search">
         <form id="contact-form" method="GET" action="/accounts" class="form-inline">
-        <div class="col-md-offset-3 col-md-5 col-sm-12 col-xs-12">
+        <div class="col-md-offset-3 col-md-2 col-lg-2 col-xs-12">
           <div class="form-group">
-         <input type="text" name="location" placeholder="search location" required="true" style="height:35px;width:450px;" class="form-control">
+         <select class="form-control" id="cat" name="category" required="true" value="All Categories" style="height:35px;width:100%;">
+           <option  value="All Categories">All Categories</option>
+              <option  value="Business services">Business services</option>
+              <option  value="Computers & Internet">Computers & Internet</option>
+              <option  value="Entertainment & Media">Entertainment & Media</option>
+              <option  value="Events & Conferences">Events & Conferences</option>
+              <option  value="Finances & Insurance">Finances & Insurance</option>
+              <option  value="Food & Drink">Food & Drink</option>
+              <option  value="Health & Beauty">Health & Beauty</option>
+              <option  value="Legal">Legal</a></li>
+              <option  value="Manufacturing & Industry">Manufacturing & Industry</option>
+              <option  value="Shopping">Shopping</a></li>
+              <option  value="Tourism & Accommodation">Tourism & Accommodation</option>
+              <option  value="Tradesmen & Construction">Tradesmen & Construction</option>
+              <option  value="Transport & Motoring">Transport & Motoring</option>
+              <option  value="Public & Social services">Public & Social services</option>
+              <option  value="Property">Property</option>
+         </select>
+       </div>
+       </div>
+       <div class="col-md-2 col-lg-2 col-xs-12 ">
+         <div class="form-group">
+         <input type="text" name="location" placeholder="search location" required="true" style="height:35px;width:100%;" class="form-control">
          </div>
         </div>
-         <div class="col-md-1 col-sm-12 col-xs-12 ">
-           <button type="submit" class="btn btn-style blue " style="float:left;">Search</button>
+         <div class="col-md-1 col-lg-1 col-xs-12 ">
+           <button type="submit" class="btn btn-style blue " style="float:left;">Search Business</button>
          </div>
          </form>
        </div>
